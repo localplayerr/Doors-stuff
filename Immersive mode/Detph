@@ -1,3 +1,6 @@
+local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/V2/Source.lua"))()
+local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
 function light(tim,color0,color1)
 	local tweenservice = game:GetService("TweenService")
 	local info = TweenInfo.new(tim,Enum.EasingStyle.Linear)
@@ -15,10 +18,70 @@ function light(tim,color0,color1)
 	end
 end
 
+local entity = spawner.Create({
+	Entity = {
+		Name = "Template Entity",
+		Asset = "rbxassetid://17508750627",
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = false,
+			Duration = 0
+		},
+		Shatter = false,
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = false
+	},
+	CameraShake = {
+		Enabled = true,
+		Range = 100,
+		Values = {1.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
+	},
+	Movement = {
+		Speed = 200,
+		Delay = 3,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = true,
+		Type = "Ambush", -- "Blitz"
+		Min = 3,
+		Max = 3,
+		Delay = 0
+	},
+	Damage = {
+		Enabled = false,
+		Range = 50,
+		Amount = 125
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 40,
+		Resist = false,
+		Break = true
+	},
+	Death = {
+		Type = "Guiding", -- "Curious"
+		Hints = {"You died to detph", "When he spawns lights turn blue", "Hide if this happened", "Also remember that he can rebounds"},
+		Cause = "Detph"
+	}
+})
+
+entity:SetCallback("OnDespawned", function()
+    achievementGiver({
+	    Title = "Blue Detphs",
+	    Desc = "Do you think I only fly by once?",
+	    Reason = "Encounter Detph",
+	    Image = "rbxassetid://97116110744331"
+	})
+end)
+
 light(0,Color3.fromRGB(127, 249, 255),Color3.fromRGB(0, 174, 255))
 
 local sound = Instance.new("Sound",game.Workspace)
-sound.Looped = true
 sound.SoundId = "rbxassetid://12221990"
 sound.PlaybackSpeed = 0.2
 sound.Volume = 5
@@ -30,3 +93,5 @@ lvl.Level = 0.85
 sound:Play()
 wait(2)
 sound:Destroy()
+
+entity:Run()

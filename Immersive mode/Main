@@ -1,1 +1,39 @@
--- go away skidder
+local sync = loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Utility/SyncHelper.lua"))()
+local seed = game.ReplicatedStorage.GameData.GameSeed.Value
+local lastroom = game.ReplicatedStorage.GameData.LatestRoom
+
+local captions = {"Good Luck","Always look away","Pro tip: press alt f4 for god mode","Do you hear that?","Im kill you if you use custom crucfix","Dont ask who is SILENCEHARDCORE8"}
+
+_G.detph = false
+_G.router = false
+
+local detphsp = {}
+local routersp = {}
+
+for i = 6 , 95 , sync:generateFullRandom(6,9,seed) do
+  table.insert(detphsp,sync:generateFullRandom(i - 4,i + 7,seed + i))
+end
+
+for i = 5 , 97 , sync:generateFullRandom(9,12,seed) do
+  table.insert(routersp,sync:generateFullRandom(i - 2,i + 9,seed + i))
+end
+
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Active",true)
+
+
+
+lastroom.changed:wait()
+
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode 0.1 activated",true)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Made by LocalPlayer(dima_082ooo)",true)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(captions[sync:generateFullRandom(0,#captions,seed)],true)
+
+lastroom.changed:connect(function()
+    if table.find(detphsp, lastroom.Value) then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Detph"))()
+    end
+    if table.find(detphsp, lastroom.Value) then
+        wait(sync:generateFullRandom(5,20,lastroom))
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Router"))()
+    end
+end)

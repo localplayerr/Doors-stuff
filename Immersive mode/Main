@@ -1,3 +1,4 @@
+local sync = loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Utility/SyncHelper.lua"))()
 local seed = game.ReplicatedStorage.GameData.GameSeed.Value
 local lastroom = game.ReplicatedStorage.GameData.LatestRoom
 
@@ -9,12 +10,12 @@ _G.router = false
 local detphsp = {}
 local routersp = {}
 
-for i = 6 , 95 , math.random(6,9) do
-  table.insert(detphsp,math.random(i - 4,i + 7)
+for i = 6 , 95 , sync:generateFullRandom(6,9,seed) do
+  table.insert(detphsp,sync:generateFullRandom(i - 4,i + 7,seed + i)
 end
 
-for i = 5 , 97 , math.random(9,12) do
-  table.insert(routersp,math.random(i - 2,i + 9)
+for i = 5 , 97 , sync:generateFullRandom(9,12,seed) do
+  table.insert(routersp,sync:generateFullRandom(i - 2,i + 9,seed + i)
 end
 
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Active",true)
@@ -25,7 +26,7 @@ lastroom.changed:wait()
 
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode 0.1 activated",true)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Made by LocalPlayer(dima_082ooo)",true)
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(captions[math.random(0,#captions)],true)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(captions[sync:generateFullRandom(0,#captions,seed)],true)
 
 lastroom.changed:connect(function()
     if table.find(detphsp, lastroom.Value) then

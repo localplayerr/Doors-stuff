@@ -1,0 +1,10 @@
+local sound = Instance.new("Sound",game.Workspace)
+sound.SoundId = "rbxassetid://4499400560"
+sound.PlaybackSpeed = 0.05
+sound.Volume = 5
+local octave = Instance.new("PitchShiftSoundEffect",sound)
+octave.Octave = 0.5
+local lvl = Instance.new("DistortionSoundEffect",sound)
+lvl.Level = 0.99
+
+sound:Play()

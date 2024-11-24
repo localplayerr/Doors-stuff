@@ -79,7 +79,7 @@ entity:SetCallback("OnDespawned", function()
 	})
 end)
 
-light(0,Color3.fromRGB(127, 249, 255),Color3.fromRGB(0, 174, 255))
+light(2,Color3.fromRGB(127, 249, 255),Color3.fromRGB(0, 174, 255))
 
 local sound = Instance.new("Sound",game.Workspace)
 sound.SoundId = "rbxassetid://12221990"

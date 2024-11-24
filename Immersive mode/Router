@@ -88,7 +88,7 @@ local entity = spawner.Create({
 	}
 })
 
-entity:SetCallback("OnDespawned", function()
+entity:SetCallback("OnDespawning", function()
 	moved:Disconnect()
     achievementGiver({
 	    Title = "Stop",
@@ -96,6 +96,7 @@ entity:SetCallback("OnDespawned", function()
 	    Reason = "Encounter Router",
 	    Image = "rbxassetid://97116110744331"
 	})
+	light(2.5,Color3.fromRGB(202, 87, 49),Color3.fromRGB(255, 150, 0))
 end)
 
 entity:Run()

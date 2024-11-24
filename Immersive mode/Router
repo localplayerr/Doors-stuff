@@ -34,6 +34,8 @@ light(2.5,Color3.fromRGB(202, 87, 49),Color3.fromRGB(116, 50, 0))
 
 moved = game.Players.LocalPlayer.Character.Humanoid.Running:connect(function()
 	game.Players.LocalPlayer.Character.Humanoid:TakeDamage(125)
+	firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to Router","When he spawn lights turn dark orange","Dont move if this happen or else you will die","When he disappear lights turn light orange and you can move"},"Blue")
+        game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Router"
 end)
 
 local entity = spawner.Create({

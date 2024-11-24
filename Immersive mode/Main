@@ -12,11 +12,11 @@ _G.router = false
 local detphsp = {}
 local routersp = {}
 
-for i = 6 , 95 , sync:generateFullRandom(6,9,seed) do
+for i = 10 , 95 , sync:generateFullRandom(6,9,seed) do
   table.insert(detphsp,sync:generateFullRandom(i - 4,i + 7,seed + i))
 end
 
-for i = 5 , 97 , sync:generateFullRandom(9,12,seed) do
+for i = 8 , 97 , sync:generateFullRandom(9,12,seed) do
   table.insert(routersp,sync:generateFullRandom(i - 2,i + 9,seed + i))
 end
 

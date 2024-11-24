@@ -1,3 +1,5 @@
+warn("Loading")
+
 local sync = loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Utility/SyncHelper.lua"))()
 local seed = game.ReplicatedStorage.GameData.GameSeed.Value
 local lastroom = game.ReplicatedStorage.GameData.LatestRoom
@@ -19,6 +21,7 @@ for i = 5 , 97 , sync:generateFullRandom(9,12,seed) do
 end
 
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Active",true)
+warn("Loaded")
 
 
 

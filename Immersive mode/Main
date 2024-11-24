@@ -33,7 +33,7 @@ lastroom.changed:connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Detph"))()
     end
     if table.find(detphsp, lastroom.Value) then
-        wait(sync:generateFullRandom(5,20,lastroom))
+        wait(sync:generateFullRandom(5,20,lastroom.Value))
         loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Router"))()
     end
 end)

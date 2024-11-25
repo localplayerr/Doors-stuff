@@ -1,5 +1,5 @@
 local lastroom = game.ReplicatedStorage.GameData.LatestRoom
-local can
+local can = true
 
 function light(tim,color0,color1)
 	local tweenservice = game:GetService("TweenService")
@@ -23,12 +23,15 @@ end
 
 light(0.1,color3.fromRGB(0,0,0),color3.fromRGB(0,0,0))
 
-lastroom.Changed:connect(function()
-  can:Disconnect()
+task.spawn(function()
+	wait(12.5
+	if can == true then
+		game.Players.LocalPlayer.Character.Humanoid:TakeDamage(100)
+	end
 end)
 
-task.wait(12.5)
+lastroom.Changed:connect(function()
+	can = false
+end)
 
-can = function()
-  game.Players.LocalPlayer.Character.Humanoid:TakeDamage(100)
-end
+

@@ -27,11 +27,23 @@ task.spawn(function()
 	wait(12.5
 	if can == true then
 		game.Players.LocalPlayer.Character.Humanoid:TakeDamage(100)
+		firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to Darkness","He attack when light turn off in every room","to survive hhim you need open next door"},"Blue")
+        	game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Darkness"
 	end
 end)
 
 lastroom.Changed:connect(function()
 	can = false
+	task.wait(2)
+	if _G.darkness == false then
+		achievementGiver({
+		    Title = "Unknown",
+		    Desc = "No one know what can hide in the darkness",
+		    Reason = "Encounter Darkness",
+		    Image = "rbxassetid://97116110744331"
+		})
+	_G.darkness = true
+	end
 end)
 
 

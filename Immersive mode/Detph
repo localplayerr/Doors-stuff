@@ -71,12 +71,15 @@ local entity = spawner.Create({
 })
 
 entity:SetCallback("OnDespawned", function()
-    achievementGiver({
-	    Title = "Blue Detphs",
-	    Desc = "Do you think I only fly by once?",
-	    Reason = "Encounter Detph",
-	    Image = "rbxassetid://97116110744331"
-	})
+	if _G.detph == false then
+	    	achievementGiver({
+		    Title = "Blue Detphs",
+		    Desc = "Do you think I only fly by once?",
+		    Reason = "Encounter Detph",
+		    Image = "rbxassetid://97116110744331"
+		})
+		_G.detph = true
+	end
 end)
 
 light(2,Color3.fromRGB(127, 249, 255),Color3.fromRGB(0, 174, 255))

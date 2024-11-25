@@ -8,6 +8,7 @@ local captions = {"Good Luck","Always look away","Pro tip: press alt f4 for god 
 
 _G.detph = false
 _G.router = false
+_G.darkness = false
 
 local detphsp = {}
 local routersp = {}

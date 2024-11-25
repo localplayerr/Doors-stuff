@@ -92,12 +92,15 @@ local entity = spawner.Create({
 
 entity:SetCallback("OnDespawning", function()
 	moved:Disconnect()
-    achievementGiver({
-	    Title = "Stop",
-	    Desc = "I said dont move",
-	    Reason = "Encounter Router",
-	    Image = "rbxassetid://97116110744331"
-	})
+	if _G.router == false then	
+	    	achievementGiver({
+		    Title = "Stop",
+		    Desc = "I said dont move",
+		    Reason = "Encounter Router",
+		    Image = "rbxassetid://97116110744331"
+		})
+		_G.router = true
+	end
 	light(2.5,Color3.fromRGB(202, 87, 49),Color3.fromRGB(255, 150, 0))
 end)
 

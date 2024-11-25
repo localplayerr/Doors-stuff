@@ -29,15 +29,18 @@ warn("Loaded")
 lastroom.changed:wait()
 
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode 0.1 activated",true)
+task.wait(3)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Made by LocalPlayer(dima_082ooo)",true)
+task.wait(3)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(captions[sync:generateFullRandom(0,#captions,seed)],true)
 
 lastroom.changed:connect(function()
     if table.find(detphsp, lastroom.Value) then
+        task.wait(sync:generateFullRandom(2,10,lastroom.Value))
         loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Detph"))()
     end
     if table.find(detphsp, lastroom.Value) then
-        wait(sync:generateFullRandom(5,20,lastroom.Value))
+        task.wait(sync:generateFullRandom(5,20,lastroom.Value))
         loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Router"))()
     end
 end)

@@ -91,6 +91,7 @@ local entity = spawner.Create({
 })
 
 entity:SetCallback("OnDespawning", function()
+	_G.stats += 30
 	moved:Disconnect()
 	if _G.router == false then	
 	    	achievementGiver({

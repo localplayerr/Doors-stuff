@@ -99,4 +99,4 @@ sound:Destroy()
 
 entity:Run()
 task.wait(5)
-_G.stats += 25
+_G.stats.Value += 25

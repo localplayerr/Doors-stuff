@@ -71,7 +71,6 @@ local entity = spawner.Create({
 })
 
 entity:SetCallback("OnDespawned", function()
-	_G.stats += 25
 	if _G.detph == false then
 	    	achievementGiver({
 		    Title = "Blue Detphs",
@@ -99,3 +98,5 @@ wait(2)
 sound:Destroy()
 
 entity:Run()
+task.wait(5)
+_G.stats += 25

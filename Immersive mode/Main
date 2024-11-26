@@ -34,7 +34,7 @@ value.Changed:Connect(function()
 	anim:Play()
 end)
 
-_G.stats = value.Value
+_G.stats = value
 
 task.spawn(function()
 	while task.wait(5) do

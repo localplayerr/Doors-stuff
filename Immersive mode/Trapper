@@ -53,7 +53,7 @@ local entity = spawner.Create({
 })
 
 entity:SetCallback("OnSpawning", function()
-    
+    _G.stats += 40
 end)
 
 entity:Run()

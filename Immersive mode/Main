@@ -13,6 +13,7 @@ _G.darkness = false
 
 local detphsp = {}
 local routersp = {}
+local darksp = {}
 
 for i = 10 , 95 , sync:generateFullRandom(6,9,seed) do
   table.insert(detphsp,sync:generateFullRandom(i - 4,i + 7,seed + i))
@@ -20,6 +21,10 @@ end
 
 for i = 8 , 97 , sync:generateFullRandom(9,12,seed) do
   table.insert(routersp,sync:generateFullRandom(i - 2,i + 9,seed + i))
+end
+
+for i = 6 , 98 , sync:generateFullRandom(7,11,seed) do
+  table.insert(darksp,sync:generateFullRandom(i,i + 15,seed + i))
 end
 
 local Fear = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
@@ -67,4 +72,7 @@ lastroom.changed:connect(function()
         task.wait(sync:generateFullRandom(5,20,lastroom.Value))
         loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Router"))()
     end
+	if table.find(detphsp, lastroom.Value) then
+        	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Darkness"))()
+    	end
 end)

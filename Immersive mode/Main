@@ -30,8 +30,12 @@ frame.Size = UDim2.new(0, 20,0, 43)
 local value = Instance.new("NumberValue",frame)
 value.Value = 20
 value.Changed:Connect(function()
-	local anim = tweenservice:Create(frame,TweenInfo.new(5,Enum.EasingStyle.Linear),{Size = UDim2.new(0,value.Value,0,43)})
-	anim:Play()
+	if value.Value >= 0 then
+		local anim = tweenservice:Create(frame,TweenInfo.new(5,Enum.EasingStyle.Linear),{Size = UDim2.new(0,value.Value,0,43)})
+		anim:Play()
+	else
+		value.Value = 0
+	end
 end)
 
 _G.stats = value

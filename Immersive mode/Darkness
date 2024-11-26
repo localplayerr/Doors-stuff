@@ -3,8 +3,6 @@ warn("started")
 local lastroom = game.ReplicatedStorage.GameData.LatestRoom
 local can = true
 
-warn("b")
-
 function light(tim,color0,color1)
 	local tweenservice = game:GetService("TweenService")
 	local info = TweenInfo.new(tim,Enum.EasingStyle.Linear)
@@ -28,17 +26,13 @@ sound.PlaybackSpeed = 0.45
 sound.Volume = 0.05
 local lvl = Instance.new("DistortionSoundEffect",sound)
 lvl.Level = 0.96
-warn("sound created")
 
-light(0.1,Color3.fromRGB(0,0,0),Color3.fromRGB(0,0,0))
-
-warn("light changed")
+light(1,Color3.fromRGB(0,0,0),Color3.fromRGB(0,0,0))
 
 task.spawn(function()
-    warn("function")
 	task.wait(5)
 	sound:Play()
-	task.wait(6.5)
+	task.wait(5)
 	repeat
 		sound.Volume += 0.01
 		task.wait(0.04)
@@ -52,7 +46,6 @@ task.spawn(function()
 end)
 
 lastroom.Changed:connect(function()
-    warn("lastroom changed")
 	can = false
 	sound:Destroy()
 	task.wait(2)

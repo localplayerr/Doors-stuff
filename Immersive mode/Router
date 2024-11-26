@@ -106,4 +106,4 @@ end)
 
 entity:Run()
 task.wait(7)
-_G.stats += 30
+_G.stats.Value += 30

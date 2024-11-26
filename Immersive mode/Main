@@ -3,6 +3,7 @@ warn("Loading")
 local sync = loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Utility/SyncHelper.lua"))()
 local seed = game.ReplicatedStorage.GameData.GameSeed.Value
 local lastroom = game.ReplicatedStorage.GameData.LatestRoom
+local tweenservice = game:GetService("TweenService")
 
 local captions = {"Good Luck","Always look away","Pro tip: press alt f4 for god mode","Do you hear that?","Im kill you if you use custom crucfix","Dont ask who is SILENCEHARDCORE8"}
 
@@ -21,10 +22,24 @@ for i = 8 , 97 , sync:generateFullRandom(9,12,seed) do
   table.insert(routersp,sync:generateFullRandom(i - 2,i + 9,seed + i))
 end
 
+local fear = Instance.new
+
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Active",true)
 warn("Loaded")
 
+local Fear = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
+local frame = Instance.new("Frame",Fear)
+frame.BorderSizePixel = 0
+frame.Position = UDim2.new(0.633, 0,0.802, 0)
+frame.Size = UDim2.new(0, 20,0, 43)
+local value = Instance.new("NumberValue",frame)
+value.Value = 20
+value.Changed:Connect(function()
+	local anim = tweenservice:Create(frame,TweenInfo.new(5,Enum.EasingStyle.Linear),{Size = UDim2.new(0,value.Value,0,43)})
+	anim:Play()
+end)
 
+_G.stats = value.Value
 
 lastroom.changed:wait()
 

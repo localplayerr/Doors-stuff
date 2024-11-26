@@ -22,11 +22,6 @@ for i = 8 , 97 , sync:generateFullRandom(9,12,seed) do
   table.insert(routersp,sync:generateFullRandom(i - 2,i + 9,seed + i))
 end
 
-local fear = Instance.new
-
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Active",true)
-warn("Loaded")
-
 local Fear = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
 local frame = Instance.new("Frame",Fear)
 frame.BorderSizePixel = 0
@@ -40,6 +35,16 @@ value.Changed:Connect(function()
 end)
 
 _G.stats = value.Value
+
+task.spawn(function()
+	while task.wait(5) do
+		_G.stats -= 5
+	end
+end)
+
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Active",true)
+warn("Loaded")
+
 
 lastroom.changed:wait()
 

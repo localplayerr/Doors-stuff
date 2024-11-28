@@ -61,6 +61,7 @@ grad.Parent = bar
 grad.Color = red
 
 local num = Instance.new("NumberValue",frame)
+num.Value = 50
 num.Changed:Connect(function()
 	local anim = tweenservice:Create(bar,TweenInfo.new(5,Enum.EasingStyle.Linear),{Size = UDim2.new(0,num.Value,0,15)})
 	anim:Play()

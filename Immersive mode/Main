@@ -75,6 +75,13 @@ task.spawn(function()
 	end
 end)
 
+num.Value.changed:connect(function()
+	if num.Value >= 299 then
+		_G.baseval = 0
+		num.Value = 300
+	end
+end)
+
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Loaded",true)
 warn("Loaded")
 

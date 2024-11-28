@@ -67,14 +67,15 @@ num.Changed:Connect(function()
 end)
 
 _G.stats = num
+_G.baseval = -3.5
 
 task.spawn(function()
 	while task.wait(5) do
-		_G.stats -= 3.5
+		_G.stats += _G.baseval
 	end
 end)
 
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Active",true)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Loaded",true)
 warn("Loaded")
 
 

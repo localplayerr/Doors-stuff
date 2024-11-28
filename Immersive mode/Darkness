@@ -30,7 +30,7 @@ lvl.Level = 0.96
 light(1,Color3.fromRGB(0,0,0),Color3.fromRGB(0,0,0))
 
 task.spawn(function()
-	_G.stats.Value += 45
+	_G.baseval = 5
 	task.wait(5)
 	sound:Play()
 	task.wait(5)
@@ -47,6 +47,7 @@ task.spawn(function()
 end)
 
 lastroom.Changed:connect(function()
+	_G.baseval = -3.5
 	can = false
 	sound:Destroy()
 	task.wait(2)

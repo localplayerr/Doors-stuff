@@ -72,11 +72,11 @@ _G.baseval = -3.5
 
 task.spawn(function()
 	while task.wait(5) do
-		_G.stats += _G.baseval
+		_G.stats.Value += _G.baseval
 	end
 end)
 
-num.Value.changed:connect(function()
+num.Changed:connect(function()
 	if num.Value >= 299 then
 		_G.baseval = 0
 		num.Value = 300

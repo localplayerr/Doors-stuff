@@ -30,7 +30,7 @@ for i = 6 , 98 , sync:generateFullRandom(7,11,seed) do
 end
 
 for i = 11 , 80 , sync:generateFullRandom(9,15,seed) do
-  table.insert(darksp,sync:generateFullRandom(i - 5,i + 20,seed + i))
+  table.insert(holesp,sync:generateFullRandom(i - 5,i + 20,seed + i))
 end
 
 local tweenservice = game:GetService("TweenService")
@@ -115,5 +115,8 @@ lastroom.changed:connect(function()
     end
 	if table.find(darksp, lastroom.Value) then
         	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Darkness"))()
+    	end
+	if table.find(holesp, lastroom.Value) then
+        	-- loadstring
     	end
 end)

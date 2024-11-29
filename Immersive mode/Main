@@ -10,10 +10,12 @@ local captions = {"Good Luck","Always look away","Pro tip: press alt f4 for god 
 _G.detph = false
 _G.router = false
 _G.darkness = false
+_G.hole = false
 
 local detphsp = {}
 local routersp = {}
 local darksp = {}
+local holesp = {}
 
 for i = 10 , 95 , sync:generateFullRandom(6,9,seed) do
   table.insert(detphsp,sync:generateFullRandom(i - 4,i + 7,seed + i))
@@ -25,6 +27,10 @@ end
 
 for i = 6 , 98 , sync:generateFullRandom(7,11,seed) do
   table.insert(darksp,sync:generateFullRandom(i,i + 15,seed + i))
+end
+
+for i = 11 , 80 , sync:generateFullRandom(9,15,seed) do
+  table.insert(darksp,sync:generateFullRandom(i - 5,i + 20,seed + i))
 end
 
 local tweenservice = game:GetService("TweenService")

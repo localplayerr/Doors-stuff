@@ -29,7 +29,7 @@ for i = 6 , 98 , sync:generateFullRandom(7,11,seed) do
   table.insert(darksp,sync:generateFullRandom(i,i + 15,seed + i))
 end
 
-for i = 11 , 80 , sync:generateFullRandom(9,15,seed) do
+for i = 11 , 80 , sync:generateFullRandom(8,13,seed) do
   table.insert(holesp,sync:generateFullRandom(i - 5,i + 20,seed + i))
 end
 

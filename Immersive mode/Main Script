@@ -1,0 +1,122 @@
+warn("Loading")
+
+local sync = loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Utility/SyncHelper.lua"))()
+local seed = game.ReplicatedStorage.GameData.GameSeed.Value
+local lastroom = game.ReplicatedStorage.GameData.LatestRoom
+local tweenservice = game:GetService("TweenService")
+
+local captions = {"Good Luck","Always look away","Pro tip: press alt f4 for god mode","Do you hear that?","Im kill you if you use custom crucfix","Dont ask who is SILENCEHARDCORE8","ъьъ","Welcome to hell","print("working")","BRBRBRBRBRBB"}
+
+_G.detph = false
+_G.router = false
+_G.darkness = false
+_G.hole = false
+
+local detphsp = {}
+local routersp = {}
+local darksp = {}
+local holesp = {}
+
+for i = 10 , 95 , sync:generateFullRandom(6,9,seed) do
+  table.insert(detphsp,sync:generateFullRandom(i - 4,i + 7,seed + i))
+end
+
+for i = 8 , 97 , sync:generateFullRandom(9,12,seed) do
+  table.insert(routersp,sync:generateFullRandom(i - 2,i + 9,seed + i))
+end
+
+for i = 6 , 98 , sync:generateFullRandom(7,11,seed) do
+  table.insert(darksp,sync:generateFullRandom(i,i + 15,seed + i))
+end
+
+for i = 11 , 95 , sync:generateFullRandom(8,13,seed) do
+  table.insert(holesp,sync:generateFullRandom(i - 5,i + 5,seed + i))
+end
+
+local tweenservice = game:GetService("TweenService")
+
+local gui = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
+local frame = Instance.new("Frame",gui)
+frame.BorderSizePixel = 0
+frame.BackgroundTransparency = 0.7
+frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+frame.Position = UDim2.new(0.637, 0,0.88, 0)
+frame.Size = UDim2.new(0, 310,0, 25)
+frame.BackgroundColor3 = Color3.fromRGB(39,32,32)
+local corner = Instance.new("UICorner",frame)
+corner.CornerRadius = UDim.new(0.25,0)
+local stroke = Instance.new("UIStroke",frame)
+stroke.Color = Color3.fromRGB(255, 255, 255)
+stroke.Thickness = 4
+local gradient = Instance.new("UIGradient",stroke)
+local red = ColorSequence.new{
+	ColorSequenceKeypoint.new(0,Color3.fromRGB(166,51,51)),
+	ColorSequenceKeypoint.new(1,Color3.fromRGB(255,101,101))
+}
+gradient.Color = red
+gradient.Rotation = -90
+local bar = Instance.new("Frame",frame)
+bar.Position = UDim2.new(0.016, 0,0.19, 0)
+bar.Size = UDim2.new(0, 300,0, 15)
+bar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+bar.BorderSizePixel = 0
+local corner1 = corner:Clone()
+corner1.Parent = bar
+local grad = gradient:Clone()
+grad.Parent = bar
+grad.Color = red
+
+local num = Instance.new("NumberValue",frame)
+num.Value = 50
+num.Changed:Connect(function()
+	local anim = tweenservice:Create(bar,TweenInfo.new(5,Enum.EasingStyle.Linear),{Size = UDim2.new(0,num.Value,0,15)})
+	anim:Play()
+end)
+
+_G.stats = num
+_G.baseval = -3.5
+
+task.spawn(function()
+	while task.wait(5) do
+		num.Value += _G.baseval
+	end
+end)
+
+num.Changed:connect(function()
+    if num.Value <= 1 then
+		num.Value = 0
+	end
+	if num.Value >= 299 then
+		_G.baseval = 0
+		num.Value = 300
+	end
+end)
+
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Loaded",true)
+warn("Loaded")
+
+
+lastroom.changed:wait()
+
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode V0.3activated",true)
+task.wait(3)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Made by LocalPlayer(dima_082ooo)",true)
+task.wait(3)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(captions[sync:generateFullRandom(0,#captions,seed)],true)
+
+lastroom.changed:connect(function()
+    if table.find(detphsp, lastroom.Value) then
+        task.wait(sync:generateFullRandom(2,10,lastroom.Value))
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Detph"))()
+    end
+    if table.find(routersp, lastroom.Value) then
+        task.wait(sync:generateFullRandom(5,20,lastroom.Value))
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Router"))()
+    end
+	if table.find(darksp, lastroom.Value) then
+        	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Darkness"))()
+    	end
+	if table.find(holesp, lastroom.Value) then
+        	-- loadstring
+    	end
+end)

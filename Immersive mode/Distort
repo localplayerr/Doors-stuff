@@ -1,0 +1,70 @@
+local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/V2/Source.lua"))()
+
+local sound = Instance.new("Sound",game.Workspace)
+sound.SoundId = "rbxassetid://4499400560"
+sound.PlaybackSpeed = 0.05
+sound.Volume = 5
+local octave = Instance.new("PitchShiftSoundEffect",sound)
+octave.Octave = 0.5
+local lvl = Instance.new("DistortionSoundEffect",sound)
+lvl.Level = 0.99
+
+sound:Play()
+
+local entity = spawner.Create({
+	Entity = {
+		Name = "Router",
+		Asset = "https://github.com/localplayerr/Doors-stuff/raw/refs/heads/main/Immersive%20mode/Distrot.rbxm",
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = false,
+			Duration = 1
+		},
+		Shatter = false,
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = false
+	},
+	CameraShake = {
+		Enabled = false,
+		Range = 100,
+		Values = {1.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
+	},
+	Movement = {
+		Speed = 16,
+		Delay = 0,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = false,
+		Type = "Ambush", -- "Blitz"
+		Min = 1,
+		Max = 3,
+		Delay = 0
+	},
+	Damage = {
+		Enabled = true,
+		Range = 50,
+		Amount = 125
+	},
+	Crucifixion = {
+		Enabled = false,
+		Range = 40,
+		Resist = false,
+		Break = true
+	},
+	Death = {
+		Type = "Guiding", -- "Curious"
+		Hints = {"You died to Distort","He feels your fear and appears when the panic scale is completely filled","Its impossible to survive him","To avoid it, try to take breaks between rooms so that the fear scale fills up more slowly"},
+		Cause = "Distrotr"
+	}
+})
+
+entity:SetCallback("OnDespawning", function()
+  game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end)
+
+entity:Run()

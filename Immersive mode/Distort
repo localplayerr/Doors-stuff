@@ -1,15 +1,13 @@
 local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/V2/Source.lua"))()
 
 local sound = Instance.new("Sound",game.Workspace)
-sound.SoundId = "rbxassetid://4499400560"
-sound.PlaybackSpeed = 0.05
-sound.Volume = 5
-local octave = Instance.new("PitchShiftSoundEffect",sound)
-octave.Octave = 0.5
-local lvl = Instance.new("DistortionSoundEffect",sound)
-lvl.Level = 0.99
+sound.SoundId = ""
+sound.PlaybackSpeed = 1
+sound.Volume = 1
 
 sound:Play()
+local anim = tweenservice:Create(Instance.new("ColorCorrectionEffect",game.Lighting),TweenInfo.new(5,Enum.EasingStyle.Linear),{Saturation = -1)})
+anim:Play()
 
 local entity = spawner.Create({
 	Entity = {

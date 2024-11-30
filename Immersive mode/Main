@@ -98,7 +98,7 @@ warn("Loaded")
 
 lastroom.changed:wait()
 
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode BETA activated",true)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode V0.3activated",true)
 task.wait(3)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Made by LocalPlayer(dima_082ooo)",true)
 task.wait(3)

@@ -1,7 +1,7 @@
 local damages = true
 local tweenservice = game:GetService("TweenService")
 
-_G.baseval = 3.5
+_G.baseval = 6
 local model = game:GetObjects("rbxassetid://12813331519")[1].holenew
 model.atta.Light.Range = 0
 model.Anchored = true
@@ -25,7 +25,7 @@ task.spawn(function()
 end)
 game.Workspace.CurrentRooms.ChildAdded:connect(function()
 	damages = false
-  _G.baseval = -3.5
+  _G.baseval = -2
     model.Ambience:Destroy()
     model.Spawn:Destroy()
     local anim1 = tweenservice:Create(model.atta.Light,TweenInfo.new(2,Enum.EasingStyle.Linear),{Range = 0})

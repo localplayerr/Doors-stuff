@@ -10,6 +10,8 @@ sound.SoundId = sounds[math.random(1,#sounds)]
 sound.Volume = math.random(0.5,2)
 sound:Play()
 
+_G.stats.Value += 25
+
 local model = game:GetObjects("rbxassetid://8211010587")[1].Part
 model.Parent = game.Workspace
 model.CFrame = character.HumanoidRootPart.CFrame - Vector3.new(0,0,-10)

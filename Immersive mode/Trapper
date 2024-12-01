@@ -1,61 +1,29 @@
-local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/V2/Source.lua"))()
+local player = game.Players.LocalPlayer
+local character = player.Character
+local kill = true
+local tweenservice = game:GetService("TweenService")
 
-local entity = spawner.Create({
-	Entity = {
-		Name = "Trapper",
-		Asset = "rbxassetid://12651725271,
-		HeightOffset = 0
-	},
-	Lights = {
-		Flicker = {
-			Enabled = false,
-			Duration = 1
-		},
-		Shatter = true,
-		Repair = false
-	},
-	Earthquake = {
-		Enabled = false
-	},
-	CameraShake = {
-		Enabled = false,
-		Range = 100,
-		Values = {1.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
-	},
-	Movement = {
-		Speed = 20,
-		Delay = 2,
-		Reversed = true
-	},
-	Rebounding = {
-		Enabled = false,
-		Type = "Ambush", -- "Blitz"
-		Min = 1,
-		Max = 1,
-		Delay = 0
-	},
-	Damage = {
-		Enabled = true,
-		Range = 40,
-		Amount = 125
-	},
-	Crucifixion = {
-		Enabled = true,
-		Range = 40,
-		Resist = false,
-		Break = true
-	},
-	Death = {
-		Type = "Guiding", -- "Curious"
-		Hints = {"You died to Trapper", "He has no signs of appearing and spawns infront", "But his vulnerability is very slow speed", "Hide if you hear lights break from next room"},
-		Cause = ""
-	}
-})
+local sounds = {"rbxassetid://1086616974","rbxassetid://244510232","rbxassetid://3419187043","rbxassetid://150185006","rbxassetid://9126213995"}
 
-entity:SetCallback("OnSpawning", function()
-	
+local sound = Instance.new("Sound",game.Workspace)
+sound.SoundId = sounds[math.random(1,#sounds)]
+sound.Volume = math.random(0.5,2)
+sound:Play()
+
+local model = game:GetObjects("rbxassetid://8211010587")[1].Part
+model.Parent = game.Workspace
+model.CFrame = character.HumanoidRootPart.CFrame - Vector3.new(0,0,-10)
+model.Anchored = true
+task.spawn(function()
+	while kill == true do
+	    task.wait(0)
+	    local _ , camera = game.Workspace.CurrentCamera:WorldToViewportPoint(model.Position)
+	    if camera then
+            warn("damage")
+            kill = false
+		character.Humanoid.Health = 0
+	end
 end)
-
-entity:Run()
-task.wait(2)
-_G.stats.Value += 40
+kill = false
+task.wait(15)
+model:Destroy()

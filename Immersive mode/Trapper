@@ -16,14 +16,16 @@ model.CFrame = character.HumanoidRootPart.CFrame - Vector3.new(0,0,-10)
 model.Anchored = true
 task.spawn(function()
 	while kill == true do
-	    task.wait(0)
+	    task.wait()
 	    local _ , camera = game.Workspace.CurrentCamera:WorldToViewportPoint(model.Position)
 	    if camera then
-            warn("damage")
-            kill = false
-		character.Humanoid.Health = 0
+            	kill = false
+	    	character.Humanoid.Health = 0
+                firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to Inspection","He spawns behind you and make stranege noise","If you hear it dont look away or else he kill you"},"Blue")
+                game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Inspection"
+            end
 	end
 end)
-kill = false
 task.wait(15)
+kill = false
 model:Destroy()

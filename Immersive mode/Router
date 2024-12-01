@@ -32,7 +32,7 @@ sound:Play()
 
 light(2.5,Color3.fromRGB(202, 87, 49),Color3.fromRGB(116, 50, 0))
 
-task.wait(1)
+task.wait(3)
 
 moved = game.Players.LocalPlayer.Character.Humanoid.Running:connect(function()
 	game.Players.LocalPlayer.Character.Humanoid:TakeDamage(125)
@@ -107,5 +107,5 @@ entity:SetCallback("OnDespawning", function()
 end)
 
 entity:Run()
-task.wait(7)
-_G.stats.Value += 30
+task.wait(10)
+_G.stats.Value += 50

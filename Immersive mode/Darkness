@@ -47,7 +47,7 @@ task.spawn(function()
 end)
 
 lastroom.Changed:connect(function()
-	_G.baseval = -3.5
+	_G.baseval = -2
 	can = false
 	sound:Destroy()
 	task.wait(2)

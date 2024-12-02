@@ -10,7 +10,7 @@ model.CFrame = game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.Current
 task.spawn(function()
 	while damages == true do
 	    task.wait(0.3)
-        local ray = game.Workspace:Raycast(game.Workspace.Entityyyy.Position,game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.Entityyyy.Position)
+        local ray = game.Workspace:Raycast(model.Position,game.Players.LocalPlayer.Character.HumanoidRootPart.Position - model.Position)
         if ray.Instance.Parent == game.Players.LocalPlayer.Character or ray.Instance.Parent.Parent == game.Players.LocalPlayer.Character then
             warn("parent")
             local light = Instance.new("PointLight",game.Players.LocalPlayer.Character.HumanoidRootPart)
@@ -22,11 +22,12 @@ task.spawn(function()
             anim:Play()
             anim2:Play()
         end
-end
     end
 end)
-game.Workspace.CurrentRooms.ChildAdded:connect(function()
-	damages = false
-  _G.baseval = -2
-    model:Destroy()
+
+task.wait(15)
+
+damages = false
+_G.baseval = -2
+model:Destroy()
 end)

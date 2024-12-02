@@ -30,4 +30,3 @@ task.wait(15)
 damages = false
 _G.baseval = -2
 model:Destroy()
-end)

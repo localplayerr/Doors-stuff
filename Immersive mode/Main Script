@@ -100,11 +100,15 @@ warn("Loaded")
 
 lastroom.changed:wait()
 
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode V0.42 activated",true)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode V0.43 activated",true)
 task.wait(3)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Made by LocalPlayer(dima_082ooo)",true)
 task.wait(3)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(captions[sync:generateFullRandom(0,#captions,seed)],true)
+
+while task.wait(math.random(35,90) do
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Trapper"))()
+end
 
 lastroom.changed:connect(function()
     if table.find(detphsp, lastroom.Value) then

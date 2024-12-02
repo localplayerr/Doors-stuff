@@ -1,0 +1,32 @@
+local damages = true
+local tweenservice = game:GetService("TweenService")
+
+_G.baseval = 6
+local model = game:GetObjects("rbxassetid://12712500267")[1].holenew
+model.atta.Light.Range = 0
+model.Anchored = true
+model.Parent = game.Workspace
+model.CFrame = game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.CurrentRooms:GetChildren() - 1].Parts.Floor.CFrame + Vector3.new(0,6,0)
+task.spawn(function()
+	while damages == true do
+	    task.wait(0.3)
+        local ray = game.Workspace:Raycast(game.Workspace.Entityyyy.Position,game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.Entityyyy.Position)
+        if ray.Instance.Parent == game.Players.LocalPlayer.Character or ray.Instance.Parent.Parent == game.Players.LocalPlayer.Character then
+            warn("parent")
+            local light = Instance.new("PointLight",game.Players.LocalPlayer.Character.HumanoidRootPart)
+            light.Color = Color3.fromRGB(255, 64, 0)
+            light.Brightness = 5
+            light.Range = 20
+            local anim = game:GetService("TweenService"):Create(light,TweenInfo.new(0.3,Enum.EasingStyle.Linear),{Range = 0})
+            local anim2 = game:GetService("TweenService"):Create(light,TweenInfo.new(0.3,Enum.EasingStyle.Linear),{Brightness = 0})
+            anim:Play()
+            anim2:Play()
+        end
+end
+    end
+end)
+game.Workspace.CurrentRooms.ChildAdded:connect(function()
+	damages = false
+  _G.baseval = -2
+    model:Destroy()
+end)

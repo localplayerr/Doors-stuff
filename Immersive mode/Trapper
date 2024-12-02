@@ -14,7 +14,7 @@ _G.stats.Value += 10
 
 local model = game:GetObjects("rbxassetid://8211010587")[1].Part
 model.Parent = game.Workspace
-model.CFrame = character.HumanoidRootPart.CFrame - Vector3.new(0,0,-10)
+model.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(Vector3.new(0,0,5))
 model.Anchored = true
 task.spawn(function()
 	while kill == true do
@@ -22,6 +22,17 @@ task.spawn(function()
 	    local _ , camera = game.Workspace.CurrentCamera:WorldToViewportPoint(model.Position)
 	    if camera then
             	kill = false
+		local sound = Instance.new("Sound",game.Workspace)
+		sound.SoundId = "rbxassetid://7111752052"
+		sound.PlaybackSpeed = 0.5
+		sound.Volume = 2
+		local octave = Instance.new("PitchShiftSoundEffect",sound)
+		octave.Octave = 0.5
+		local lvl = Instance.new("DistortionSoundEffect",sound)
+		lvl.Level = 0.98
+		
+		sound:Play()
+		task.wait(1)
 	    	character.Humanoid.Health = 0
                 firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to Inspection","He spawns behind you and make stranege noise","If you hear it dont look away or else he kill you"},"Blue")
                 game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Inspection"

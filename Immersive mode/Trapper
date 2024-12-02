@@ -32,7 +32,7 @@ task.spawn(function()
 		lvl.Level = 0.98
 		
 		sound:Play()
-		task.wait(1)
+		task.wait(2)
 	    	character.Humanoid.Health = 0
                 firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to Inspection","He spawns behind you and make stranege noise","If you hear it dont look away or else he kill you"},"Blue")
                 game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Inspection"

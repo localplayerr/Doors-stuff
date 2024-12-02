@@ -21,6 +21,7 @@ task.spawn(function()
             local anim2 = game:GetService("TweenService"):Create(light,TweenInfo.new(0.3,Enum.EasingStyle.Linear),{Brightness = 0})
             anim:Play()
             anim2:Play()
+            game.Players.LocalPlayer.Character.Humanoid:TakeDamage(15)
         end
     end
 end)

@@ -6,7 +6,7 @@ sound.PlaybackSpeed = 1
 sound.Volume = 1
 
 sound:Play()
-local anim = tweenservice:Create(Instance.new("ColorCorrectionEffect",game.Lighting),TweenInfo.new(5,Enum.EasingStyle.Linear),{Saturation = -1)})
+local anim = tweenservice:Create(Instance.new("ColorCorrectionEffect",game.Lighting),TweenInfo.new(5,Enum.EasingStyle.Linear),{Saturation = -1})
 anim:Play()
 
 local entity = spawner.Create({

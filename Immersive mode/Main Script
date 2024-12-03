@@ -132,6 +132,9 @@ lastroom.changed:connect(function()
 	if table.find(holesp, lastroom.Value) then
         	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Hole"))()
     	end
+	if table.find(flamesp, lastroom.Value) then
+        	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Flame"))()
+    	end
 	if lastroom.Value == 50 then
 		game.Lighting.FogEnd = 5000
 		game.Lighting.FogColor = Color3.FromRGB(255,255,255)

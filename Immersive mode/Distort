@@ -57,7 +57,7 @@ local entity = spawner.Create({
 	Death = {
 		Type = "Guiding", -- "Curious"
 		Hints = {"You died to Distort","He feels your fear and appears when the panic scale is completely filled","Its impossible to survive him","To avoid it, try to take breaks between rooms so that the fear scale fills up more slowly"},
-		Cause = "Distrotr"
+		Cause = "Distort"
 	}
 })
 

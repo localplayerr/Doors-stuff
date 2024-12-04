@@ -105,7 +105,7 @@ warn("Loaded")
 
 lastroom.changed:wait()
 
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode V0.45 activated",true)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode V0.455 activated",true)
 task.wait(3)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Made by LocalPlayer(dima_082ooo)",true)
 task.wait(3)
@@ -135,11 +135,4 @@ lastroom.changed:connect(function()
 	if table.find(flamesp, lastroom.Value) then
         	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Flame"))()
     	end
-	if lastroom.Value == 50 then
-		game.Lighting.FogEnd = 5000
-		game.Lighting.FogColor = Color3.FromRGB(255,255,255)
-		game.Lighting.FogStart = 0
-		local anim = tweenservice:Create(game.Lighting,TweenInfo.new(5,Enum.EasingStyle.Linear),{FogEnd = 400})
-		anim:Play()
-	end
 end)

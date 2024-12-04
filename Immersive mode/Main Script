@@ -95,7 +95,7 @@ num.Changed:connect(function()
 		_G.baseval = 0
 		num.Value = 300
 		task.wait(3)
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Inspection"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Distort"))()
 	end
 end)
 

@@ -4,6 +4,7 @@ local sound = Instance.new("Sound",game.Workspace)
 sound.SoundId = ""
 sound.PlaybackSpeed = 1
 sound.Volume = 1
+local tweenservice = game:GetService("TweenService")
 
 sound:Play()
 local anim = tweenservice:Create(Instance.new("ColorCorrectionEffect",game.Lighting),TweenInfo.new(5,Enum.EasingStyle.Linear),{Saturation = -1})

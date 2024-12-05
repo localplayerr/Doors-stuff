@@ -97,6 +97,7 @@ num.Changed:connect(function()
 	if num.Value >= 299 then
 		_G.baseval = 0
 		num.Value = 300
+		num = nil
 		task.wait(3)
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Distort"))()
 	end

@@ -8,8 +8,7 @@ local TextChatService = game:GetService("TextChatService")
 
 local whitelist = {"SILINCEHARDCORE8","devonpapafrita3"}
 
-local captions = {"Good Luck","Always look away","Pro tip: press alt f4 for god mode","Do you hear that?","Im kill you if you use custom crucfix","Dont ask who is SILENCEHARDCORE8","ъьъ","Welcome to hell","print(working)","BRBRBRBRBRBB","My english on top","Please give me wave 7 day key","<o_o>","Bet that you cant go past door 30",":skull:","Run VIRUS.exe for 99999 robux","What should i type here?",":cool::cool::cool::cool::cool::cool:"}
-
+local captions = {"Good Luck","Always look away","Pro tip: press alt f4 for god mode","Do you hear that?","Im kill you if you use custom crucfix","Dont ask who is SILENCEHARDCORE8","ъьъ","Welcome to hell","print(working)","BRBRBRBRBRBB","My english on top","Please give me wave 7 day key","<o_o>","Bet that you cant go past door 30",":skull:","Run VIRUS.exe for 99999 robux","What should i type here?",":cool::cool::cool::cool::cool::cool:","Run _G.stats = 300 command for free admin pannel","Dont beg tags"}
 _G.detph = false
 _G.router = false
 _G.darkness = false
@@ -121,14 +120,14 @@ warn("Loaded")
 
 lastroom.changed:wait()
 
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode V0.46 activated",true)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Immersive mode V0.5 activated",true)
 task.wait(3)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Made by LocalPlayer(dima_082ooo)",true)
 task.wait(3)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(captions[sync:generateFullRandom(0,#captions,seed)],true)
 
 task.spawn(function()
-	while task.wait(math.random(35,90)) do
+	while task.wait(math.random(60,150)) do
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Inspection"))()
 	end
 end)

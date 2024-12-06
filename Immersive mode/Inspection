@@ -14,7 +14,7 @@ _G.stats.Value += 10
 
 local model = game:GetObjects("rbxassetid://8211010587")[1].Part
 model.Parent = game.Workspace
-model.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(Vector3.new(0,0,5))
+model.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(Vector3.new(0,0,10))
 model.Anchored = true
 task.spawn(function()
 	while kill == true do

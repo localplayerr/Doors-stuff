@@ -13,6 +13,7 @@ _G.detph = false
 _G.router = false
 _G.darkness = false
 _G.hole = false
+_G.inspectionc = true
 
 local detphsp = {}
 local routersp = {}
@@ -38,6 +39,7 @@ end
 
 for i = 10 , 99 , sync:generateFullRandom(6,10,seed) do
   table.insert(flamesp,sync:generateFullRandom(i - 4,i + 1,seed + i))
+	print(sync:generateFullRandom(i - 4,i + 1,seed + i))
 end
 
 local tweenservice = game:GetService("TweenService")
@@ -117,7 +119,8 @@ task.wait(3)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(captions[sync:generateFullRandom(0,#captions,seed)],true)
 
 task.spawn(function()
-	while task.wait(math.random(60,150)) do
+	while _G.inspectionc == true do
+		task.wait(math.random(60,150))
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Inspection"))()
 	end
 end)

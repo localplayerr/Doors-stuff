@@ -148,7 +148,7 @@ lastroom.changed:connect(function()
         	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Hole"))()
     	end
 	if table.find(flamesp, lastroom.Value) then
-		task.wait(sync:generateFullRandom(0,2,lastroom.Value))
+		task.wait(sync:generateFullRandom(1,2,lastroom.Value))
         	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Flame"))()
     	end
 end)

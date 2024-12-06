@@ -1,6 +1,7 @@
 local damages = true
 local tweenservice = game:GetService("TweenService")
 
+game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.CurrentRooms:GetChildren() - 1]:SetAttribute("Ambient",Color3.fromRGB(0,0,0))
 _G.baseval = 6
 local model = game:GetObjects("rbxassetid://12712500267")[1].holenew
 model.atta.Light.Range = 0

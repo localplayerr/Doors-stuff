@@ -1,6 +1,7 @@
 warn("started")
 
 local lastroom = game.ReplicatedStorage.GameData.LatestRoom
+local lastrooms = game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.CurrentRooms:GetChildren() - 1]
 local can = true
 
 function light(tim,color0,color1)
@@ -26,6 +27,8 @@ sound.PlaybackSpeed = 0.45
 sound.Volume = 0.05
 local lvl = Instance.new("DistortionSoundEffect",sound)
 lvl.Level = 0.96
+
+lastrooms:SetAttribute("Ambient",Color3.fromRGB(0,0,0))
 
 light(1,Color3.fromRGB(0,0,0),Color3.fromRGB(0,0,0))
 

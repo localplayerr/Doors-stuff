@@ -76,7 +76,7 @@ entity:SetCallback("OnDespawned", function()
 		    Title = "Blue Detphs",
 		    Desc = "Do you think I only fly by once?",
 		    Reason = "Encounter Detph",
-		    Image = "rbxassetid://97116110744331"
+		    Image = "http://www.roblox.com/asset/?id=120436258363580"
 		})
 		_G.detph = true
 	end

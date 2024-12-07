@@ -2,6 +2,7 @@ local player = game.Players.LocalPlayer
 local character = player.Character
 local kill = true
 local tweenservice = game:GetService("TweenService")
+local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 
 local sounds = {"rbxassetid://1086616974","rbxassetid://244510232","rbxassetid://3419187043","rbxassetid://150185006","rbxassetid://9126213995"}
 

@@ -33,3 +33,15 @@ task.wait(15)
 damages = false
 _G.baseval = -2
 model:Destroy()
+
+task.wait(2)
+
+if _G.flame == false then
+	    	achievementGiver({
+		    Title = "Im feel fire",
+		    Desc = "One wrong step and you will die",
+		    Reason = "Encounter Flameh",
+		    Image = "http://www.roblox.com/asset/?id=111338418814509"
+		})
+		_G.flame = true
+end

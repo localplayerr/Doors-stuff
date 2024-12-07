@@ -99,7 +99,7 @@ entity:SetCallback("OnDespawning", function()
 		    Title = "Stop",
 		    Desc = "I said dont move",
 		    Reason = "Encounter Router",
-		    Image = "rbxassetid://97116110744331"
+		    Image = "http://www.roblox.com/asset/?id=120694284149293"
 		})
 		_G.router = true
 	end

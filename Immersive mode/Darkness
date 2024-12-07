@@ -1,5 +1,6 @@
 warn("started")
 
+local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 local lastroom = game.ReplicatedStorage.GameData.LatestRoom
 local lastrooms = game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.CurrentRooms:GetChildren() - 1]
 local can = true
@@ -59,7 +60,7 @@ lastroom.Changed:connect(function()
 		    Title = "Unknown",
 		    Desc = "No one know what can hide in the darkness",
 		    Reason = "Encounter Darkness",
-		    Image = "rbxassetid://97116110744331"
+		    Image = "http://www.roblox.com/asset/?id=92630376345995"
 		})
 	_G.darkness = true
 	end

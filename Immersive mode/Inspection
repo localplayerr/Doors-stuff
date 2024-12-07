@@ -49,3 +49,12 @@ end)
 task.wait(15)
 kill = false
 model:Destroy()
+if _G.inspec == false then	
+	    	achievementGiver({
+		    Title = "Look away",
+		    Desc = "Just look into my eyes",
+		    Reason = "Encounter Inspection",
+		    Image = "http://www.roblox.com/asset/?id=75670170222840"
+		})
+		_G.inspec = true
+end

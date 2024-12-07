@@ -10,9 +10,9 @@ sound.SoundId = sounds[math.random(1,#sounds)]
 sound.Volume = math.random(0.5,2)
 sound:Play()
 
-task.wait(0.5)
+task.wait(1)
 
-_G.stats.Value += 10
+_G.stats.Value += 20
 
 local model = game:GetObjects("rbxassetid://8211010587")[1].Part
 model.Parent = game.Workspace
@@ -35,9 +35,14 @@ task.spawn(function()
 		
 		sound:Play()
 		task.wait(2)
-	    	character.Humanoid.Health = 0
-                firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to Inspection","He spawns behind you and make stranege noise","If you hear it dont look away or else he kill you"},"Blue")
-                game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Inspection"
+		tweenservice:Create(model,TweenInfo.new(0.5,Enum.EasingStyle.Linear),{CFrame = character.HumanoidRootPart.CFrame}):Play()
+		task.wait(0.5)
+	    	character.Humanoid:TakeDamage(40)
+            model:Destroy()
+		if character.Humanoid.Health <= 1 then
+                	firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to Inspection","He spawns behind you and make stranege noise","If you hear it dont look away or else he kill you"},"Blue")
+                	game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Inspection"
+		end
             end
 	end
 end)

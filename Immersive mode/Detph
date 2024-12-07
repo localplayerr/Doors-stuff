@@ -115,12 +115,8 @@ entity:SetCallback("OnDamagePlayer", function(newHealth)
 	
 	sound:Play()
 	
-	game:GetService("TweenService"):Create(image,TweenInfo.new(0.5),{Size = UDim2.new(0, 35, 0, 35)}):Play()
-	
-	task.wait(0.5)
-	
-	game:GetService("TweenService"):Create(image,TweenInfo.new(0.25),{Size = UDim2.new(0, 1000, 0, 1000)}):Play()
-	task.wait(0.5)
+	game:GetService("TweenService"):Create(image,TweenInfo.new(0.25,Enum.EasingStyle.Linear),{Size = UDim2.new(0, 1300, 0, 1300)}):Play()
+	task.wait(1)
 	screen:Destroy()
 end)
 

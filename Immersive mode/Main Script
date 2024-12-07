@@ -117,6 +117,14 @@ TextChatService.OnIncomingMessage = function(Message: TextChatMessage)
 		if table.find(whitelist,player.Name) then
 			Message.PrefixText = " <font color='#00A2FF'>[Cool Guy]</font> " .. Message.PrefixText
 		end
+		if table.find(commands,player.Name) then
+			if Message.Text.find(Message.Text , "/caption") then
+				require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(Message.Text:sub(10,Message.Text:len()),true)
+			end
+			if Message.Text.find(Message.Text , "/DisableInspection") then
+				_G.insp = nil
+			end
+		end
 	end
 end
 

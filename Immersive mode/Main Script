@@ -148,21 +148,31 @@ end)
 
 lastroom.changed:connect(function()
     if table.find(detphsp, lastroom.Value) then
-        task.wait(sync:generateFullRandom(2,10,lastroom.Value))
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Detph"))()
+	task.spawn(function()
+	        task.wait(sync:generateFullRandom(2,10,lastroom.Value))
+	        loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Detph"))()
+	end)
     end
     if table.find(routersp, lastroom.Value) then
-        task.wait(sync:generateFullRandom(5,20,lastroom.Value))
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Router"))()
+	task.spawn(function()
+	        task.wait(sync:generateFullRandom(5,20,lastroom.Value))
+	        loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Router"))()
+	end)
     end
 	if table.find(darksp, lastroom.Value) then
-        	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Darkness"))()
+		task.spawn(function()
+	        	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Darkness"))()
+		end)
     	end
 	if table.find(holesp, lastroom.Value) then
-        	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Hole"))()
+		task.spawn(function()
+	        	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Hole"))()
+		end)
     	end
 	if table.find(flamesp, lastroom.Value) then
-		task.wait(sync:generateFullRandom(0.1,0.5,lastroom.Value))
-        	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Flame"))()
+		task.spawn(function()
+			task.wait(sync:generateFullRandom(0.1,0.5,lastroom.Value))
+	        	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Flame"))()
+		end)
     	end
 end)

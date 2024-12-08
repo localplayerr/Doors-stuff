@@ -35,6 +35,30 @@ light(2.5,Color3.fromRGB(202, 87, 49),Color3.fromRGB(116, 50, 0))
 task.wait(3.5)
 
 moved = game.Players.LocalPlayer.Character.Humanoid.Running:connect(function()
+	local sound = Instance.new("Sound",game.Workspace)
+	sound.SoundId = "rbxassetid://8325519723"
+	sound.Volume = 1
+	local octave = Instance.new("PitchShiftSoundEffect",sound)
+	octave.Octave = 0.5
+	
+	local screen = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
+	
+	local background = Instance.new("ImageLabel",screen)
+	background.AnchorPoint = Vector2.new(0.5,0.5)
+	background.Position = UDim2.new(0.5,0,0.5,0)
+	background.Size = UDim2.new(0,1500,0,1500)
+	background.Image = "http://www.roblox.com/asset/?id=109175784657012"
+	
+	sound:Play()
+	
+	task.spawn(function()
+		while task.wait(0.05) do
+			background.Rotation += 90
+		end
+	end)
+	
+	task.wait(2)
+	background:Destroy()
 	game.Players.LocalPlayer.Character.Humanoid:TakeDamage(125)
 	firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to Router","When he spawn lights turn dark orange","Dont move if this happen or else you will die","When he disappear lights turn light orange and you can move"},"Blue")
         game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Router"

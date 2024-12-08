@@ -35,6 +35,7 @@ light(2.5,Color3.fromRGB(202, 87, 49),Color3.fromRGB(116, 50, 0))
 task.wait(3.5)
 
 moved = game.Players.LocalPlayer.Character.Humanoid.Running:connect(function()
+	moved:Disconnect()
 	local sound = Instance.new("Sound",game.Workspace)
 	sound.SoundId = "rbxassetid://8325519723"
 	sound.Volume = 1

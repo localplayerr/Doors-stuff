@@ -1,0 +1,23 @@
+-- soon
+warn("stary fabric")
+
+local damages: Connection = nil
+
+local model = game:GetObjects("rbxassetid://109996285599714")[1].Fabric
+model.Parent = game.Workspace
+model.CFrame = game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.CurrentRooms:GetChildren()].Parts.Floor.CFrame
+
+damages = game.Workspace.CurrentRooms.ChildAdded:connect(function()
+    task.spawn(function()
+        for _ , room: Model in game.Workspace.CurrentRooms:GetChildren() do
+            task.spawn(function()
+                require(game.ReplicatedStorage.ClientModules.Module_Events).shatter(room)
+            end)
+        end
+    end)
+    task.wait(2)
+    game:GetService("TweenService"):Create(model, TweenInfo.new(0.5,Enum.EasingStyle.Linear), {CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame}):Play()
+    game.Players.LocalPlayer.Character.Humanoid:TakeDamage(65)
+    model:Destroy()
+    damages:Disconnect()
+end)

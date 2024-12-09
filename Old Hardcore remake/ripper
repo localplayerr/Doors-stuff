@@ -58,6 +58,16 @@ entity:SetCallback("OnSpawned", function()
     local pitch = Instance.new("PitchShiftSoundEffect",sound)
     pitch.Octave = 0.875
     sound:Play()
+	local tweenservice = game:GetService("TweenService")
+	local info = TweenInfo.new(2,Enum.EasingStyle.Linear)
+	for _ , light in pairs(game.Workspace.CurrentRooms:GetDescendants()) do
+		if light:IsA("Light") or light:IsA("SurfaceLight") or light:IsA("SpotLight") then
+			local target = {Color = Color3.fromRGB(255,0,0}
+			local anim = tweenservice:Create(light,info,target)
+			anim:Play()
+		end
+	end
+end
 end)
 
 entity:SetCallback("OnDespawned", function()

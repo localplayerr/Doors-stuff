@@ -69,11 +69,11 @@ end
 
 newbadge.MouseButton1Click:Connect(function()
     print("basge opened")
-    sut.Title.Text = title
-    sut.Title.ThemeGradient.Color = color
-    sut.Reason.Text = reason
-    sut.Desc.Text = description
-    sut.ImageLabel.Image = logo
+    sut.Title.Text = a["title"]
+    sut.Title.ThemeGradient.Color = a["color"]
+    sut.Reason.Text = a["reason"]
+    sut.Desc.Text = a["description"]
+    sut.ImageLabel.Image = a["logo"]
     sut.Apply.Visible = false
     sut.Applied.Visible = false
     if a["prize"] == true then

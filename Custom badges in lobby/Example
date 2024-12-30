@@ -1,4 +1,4 @@
-local config = 
+local config = loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Custom%20badges%20in%20lobby/Source"))()
 
 config.createbadge({
   local title = "Example badge" -- Title here

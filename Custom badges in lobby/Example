@@ -1,0 +1,16 @@
+local config = 
+
+config.createbadge({
+  local title = "Example badge" -- Title here
+  local description = "Very cool description" -- description here
+  local reason = "Run this script" -- reason here
+  local logo = "http://www.roblox.com/asset/?id=5430597512" -- logo here (should be rbxassetid)
+  local color = ColorSequence.new{
+  ColorSequenceKeypoint.new(0, Color3.fromRGB(134, 255, 121)),
+  ColorSequenceKeypoint.new(1, Color3.fromRGB(112, 241, 255))
+  } -- colors
+  local category = "General" -- General,Entities,Crucifix,Floors
+  local prize = true -- rnable/disable prize
+  local knobs = 500 -- knobs that will be given 
+  local revives = 3 -- revives that will be given
+})

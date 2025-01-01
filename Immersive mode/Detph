@@ -65,7 +65,7 @@ local entity = spawner.Create({
 	},
 	Death = {
 		Type = "Guiding", -- "Curious"
-		Hints = {"You died to detph", "When he spawns lights turn blue", "Hide if this happened", "Also remember that he can rebounds"},
+		Hints = {"You died to who you call Depth...", "When he spawns lights turn blue", "Hide if this happened!"},
 		Cause = "Detph"
 	}
 })
@@ -73,9 +73,9 @@ local entity = spawner.Create({
 entity:SetCallback("OnDespawned", function()
 	if _G.detph == false then
 	    	achievementGiver({
-		    Title = "Blue Detphs",
+		    Title = "Blue Depths",
 		    Desc = "Do you think I only fly by once?",
-		    Reason = "Encounter Detph",
+		    Reason = "Encounter Depth",
 		    Image = "http://www.roblox.com/asset/?id=120436258363580"
 		})
 		_G.detph = true

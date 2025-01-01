@@ -14,7 +14,7 @@ model.Spawn:Play()
 task.wait(1)
 task.spawn(function()
 	while damages == true do
-	    task.wait(0.3)
+	    task.wait(0.5)
         local ray = game.Workspace:Raycast(model.Position,game.Players.LocalPlayer.Character.HumanoidRootPart.Position - model.Position)
         if ray.Instance.Parent == game.Players.LocalPlayer.Character or ray.Instance.Parent.Parent == game.Players.LocalPlayer.Character then
             warn("parent")
@@ -27,6 +27,11 @@ task.spawn(function()
             anim:Play()
             anim2:Play()
             game.Players.LocalPlayer.Character.Humanoid:TakeDamage(10)
+	    if game.Players.LocalPlayer.Character.Humanoid.Health <= 1 then
+		damages = false
+		firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to who you call Flame...","He spawns in center of room and releases burning rays","Find an object to hide behind!"},"Blue")
+        	game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Flame"
+	    end
         end
     end
 end)
@@ -43,8 +48,8 @@ task.wait(2)
 if _G.flame == false then
 	    	achievementGiver({
 		    Title = "Im feel fire",
-		    Desc = "One wrong step and you will die",
-		    Reason = "Encounter Flameh",
+		    Desc = "One wrong step and you will die.",
+		    Reason = "Encounter Flame",
 		    Image = "http://www.roblox.com/asset/?id=111338418814509"
 		})
 		_G.flame = true

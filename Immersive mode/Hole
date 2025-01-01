@@ -17,7 +17,7 @@ task.spawn(function()
             	game.Players.LocalPlayer.Character.Humanoid:TakeDamage(10)
 	    end
 	if game.Players.LocalPlayer.Character.Humanoid.Health <= 0 then
-                firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to Hole","If you see him dont look away","You should look at him or else you die"},"Blue")
+                firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to who you call Hole","If you see him dont look away","You should look at him or else you die"},"Blue")
                 game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Hole"
             end
 

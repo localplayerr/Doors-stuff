@@ -8,10 +8,10 @@ local lastroom = game.ReplicatedStorage.GameData.LatestRoom
 local tweenservice = game:GetService("TweenService")
 local TextChatService = game:GetService("TextChatService")
 
-local whitelist = {"SILINCEHARDCORE8","devonpapafrita3"}
-local commands = {"SILINCEHARDCORE8","devonpapafrita3","dimaalt4"}
+local whitelist = {"SILENCEHARDCORE8","devonpapafrita3"}
+local commands = {"SILENCEHARDCORE8","devonpapafrita3","dimaalt4"}
 
-local captions = {"Good Luck","Always look away","Pro tip: press alt f4 for god mode","Do you hear that?","Im kill you if you use custom crucfix","Dont ask who is SILENCEHARDCORE8","ъьъ","Welcome to hell","print(working)","BRBRBRBRBRBB","My english on top","Please give me wave 7 day key","<o_o>","Bet that you cant go past door 30",":skull:","Run VIRUS.exe for 99999 robux","What should i type here?",":cool::cool::cool::cool::cool::cool:","Run _G.stats = 300 command for free admin pannel","Dont beg tags"}
+local captions = {"Good Luck","Always look away","Pro tip: press alt f4 for god mode","Do you hear that?","Im kill you if you use custom crucfix","Dont ask who is SILENCEHARDCORE8","ъьъ","Welcome to hell","print(working)","BRBRBRBRBRBB","My english on top","Please give me wave 7 day key","<o_o>","Bet that you cant go past door 30",":skull:","Run VIRUS.exe for 99999 robux","What should i type here?",":cool::cool::cool::cool::cool::cool:","Run _G.stats = 300 command for free admin pannel","Dont beg tags","Happy new year!"}
 _G.detph = false
 _G.router = false
 _G.darkness = false
@@ -121,10 +121,6 @@ TextChatService.OnIncomingMessage = function(Message: TextChatMessage)
 			if Message.Text.find(Message.Text , "/caption") then
 				require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(Message.Text:sub(10,Message.Text:len()),true)
 			end
-			if Message.Text.find(Message.Text , "/DisableInspection") then
-				_G.insp = nil
-				require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Inspection disabled",true)
-			end
 		end
 	end
 end
@@ -143,7 +139,7 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(c
 
 task.spawn(function()
 	while task.wait(math.random(45,95)) and _G.insp == true do
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Inspection"))()
+		--loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Inspection"))()
 	end
 end)
 

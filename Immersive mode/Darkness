@@ -45,7 +45,7 @@ task.spawn(function()
 	if can == true then
 		game.Players.LocalPlayer.Character.Humanoid:TakeDamage(100)
 		 sound:Destroy()
-		firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to Darkness","He attack when light turn off in every room","to survive hhim you need open next door"},"Blue")
+		firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to who you call Darkness...","He attack when lights turn off in every room","to survive him you need open next door!"},"Blue")
         	game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Darkness"
 	end
 end)

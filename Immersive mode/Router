@@ -61,7 +61,7 @@ moved = game.Players.LocalPlayer.Character.Humanoid.Running:connect(function()
 	task.wait(2)
 	background:Destroy()
 	game.Players.LocalPlayer.Character.Humanoid:TakeDamage(125)
-	firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to Router","When he spawn lights turn dark orange","Dont move if this happen or else you will die","When he disappear lights turn light orange and you can move"},"Blue")
+	firesignal(game.ReplicatedStorage.RemotesFolder.DeathHint.OnClientEvent, {"You died to who you call Router","When he spawn lights turn dark orange","He's blind but he hears very well","Dont move unitl he disappear!"},"Blue")
         game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Router"
 end)
 

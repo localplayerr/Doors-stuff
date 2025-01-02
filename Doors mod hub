@@ -64,7 +64,7 @@ local Hardcore = Tab:CreateButton({
             end)
             Rayfield:Notify({
             Title = "You actived doors hardcore mode!",
-            Content = "Notification Content",
+            Content = "Omg old hardcore",
             Duration = 4,
             Image = 0,
             })
@@ -79,7 +79,7 @@ local CreppyMode = Tab:CreateButton({
         end)
         Rayfield:Notify({
         Title = "You actived doors Creppy mode!",
-        Content = "Notification Content",
+        Content = "So creppy",
         Duration = 4,
         Image = 0,
         })
@@ -95,7 +95,7 @@ local LavaMode = Tab:CreateButton({
         end)
         Rayfield:Notify({
         Title = "You actived doors Lava mode!",
-        Content = "Notification Content",
+        Content = "THE FLOOR IS LAVA!!!!!",
         Duration = 4,
         Image = 0,
         })
@@ -110,7 +110,7 @@ local HorrorMode = Tab:CreateButton({
         end)
         Rayfield:Notify({
         Title = "You actived doors Horror mode!",
-        Content = "Notification Content",
+        Content = "Scary",
         Duration = 4,
         Image = 0,
         })
@@ -125,7 +125,22 @@ local imrMode = Tab:CreateButton({
         end)
         Rayfield:Notify({
         Title = "You actived doors Cristhmas theme!",
-        Content = "Notification Content",
+        Content = "Happy new year",
+        Duration = 4,
+        Image = 0,
+        })
+   end,
+})
+
+local Imposmode = Tab:CreateButton({
+   Name = "Imposible Mode",
+   Callback = function()
+        task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Idk-lol2/xmasmode/refs/heads/main/xmasmode.txt"))()
+        end)
+        Rayfield:Notify({
+        Title = "You actived doors Impossible mode!",
+        Content = "Its impossible",
         Duration = 4,
         Image = 0,
         })

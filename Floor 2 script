@@ -22,7 +22,7 @@ task.spawn(function()
         game.Lighting.Atmosphere:Destroy()
     end
     game.Lighting.FogColor = Color3.new(0.133333, 0.149020, 0.239216)
-    game.Lighting.FogEnd = 70
+    game.Lighting.FogEnd = 100
     game.Lighting.FogStart = 0
 end)
 

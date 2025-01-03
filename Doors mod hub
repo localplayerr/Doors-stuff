@@ -64,7 +64,7 @@ local Hardcore = Tab:CreateButton({
             end)
             Rayfield:Notify({
             Title = "You actived doors hardcore mode!",
-            Content = "Omg old hardcore",
+            Content = "Made by me",
             Duration = 4,
             Image = 0,
             })
@@ -79,7 +79,7 @@ local CreppyMode = Tab:CreateButton({
         end)
         Rayfield:Notify({
         Title = "You actived doors Creppy mode!",
-        Content = "So creppy",
+        Content = "Made by dripocapy",
         Duration = 4,
         Image = 0,
         })
@@ -95,7 +95,7 @@ local LavaMode = Tab:CreateButton({
         end)
         Rayfield:Notify({
         Title = "You actived doors Lava mode!",
-        Content = "THE FLOOR IS LAVA!!!!!",
+        Content = "Made by chrono",
         Duration = 4,
         Image = 0,
         })
@@ -110,7 +110,7 @@ local HorrorMode = Tab:CreateButton({
         end)
         Rayfield:Notify({
         Title = "You actived doors Horror mode!",
-        Content = "Scary",
+        Content = "Made by chrono",
         Duration = 4,
         Image = 0,
         })
@@ -125,7 +125,7 @@ local imrMode = Tab:CreateButton({
         end)
         Rayfield:Notify({
         Title = "You actived doors Cristhmas theme!",
-        Content = "Happy new year",
+        Content = "Made by chill guy",
         Duration = 4,
         Image = 0,
         })
@@ -140,7 +140,7 @@ local Imposmode = Tab:CreateButton({
         end)
         Rayfield:Notify({
         Title = "You actived doors Impossible mode!",
-        Content = "Its impossible",
+        Content = "Idk who made this",
         Duration = 4,
         Image = 0,
         })

@@ -54,7 +54,9 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local Tab = Window:CreateTab("Modes", 0) -- Title, Image
+-- modes
+
+local Tab = Window:CreateTab("Modes", 12671460834) -- Title, Image
 
 local Hardcore = Tab:CreateButton({
    Name = "Old Hardcore mode",
@@ -144,5 +146,51 @@ local Imposmode = Tab:CreateButton({
         Duration = 4,
         Image = 0,
         })
+   end,
+})
+
+local f2 = Tab:CreateButton({
+   Name = "Floor 2 theme",
+   Callback = function()
+        task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Floor%202%20script"))()
+        end)
+        Rayfield:Notify({
+        Title = "You actived doors floor 2 theme!",
+        Content = "Made by me",
+        Duration = 4,
+        Image = 0,
+        })
+   end,
+})
+
+-- items
+
+local Itm = Window:CreateTab("Items", 12519056591) -- Title, Image
+
+local f2 = Itm:CreateButton({
+   Name = "Glitch scanner",
+   Callback = function()
+        task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Agadigas/Doors/refs/heads/main/Glitched%20Scanner%20by%20Custom%20Doors"))()
+        end)
+   end,
+})
+
+local f2 = Itm:CreateButton({
+   Name = "Moonlight bottle",
+   Callback = function()
+        task.spawn(function()
+            loadstring(game:HttpGet('https://gist.githubusercontent.com/IdkMyNameLoll/04d7dd5e02688624b958b8c2604b924c/raw/9e86b34249f44ed2dd433176e67daaf3db30cde8/MoonBottle'))()
+        end)
+   end,
+})
+
+local f2 = Itm:CreateButton({
+   Name = "Spirallight bottle",
+   Callback = function()
+        task.spawn(function()
+            loadstring(game:HttpGet('https://gist.githubusercontent.com/IdkMyNameLoll/8b05c837bea9effac2554340465b4be1/raw/3f3be0ee72e7f153db39a16a40fa63dce6cde72d/SpiralBottle'))()
+        end)
    end,
 })

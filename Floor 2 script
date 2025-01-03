@@ -1,0 +1,45 @@
+local function getGitSoundId(GithubSoundPath: string, AssetName: string): Sound
+    local Url = GithubSoundPath
+
+    if not isfile(AssetName..".mp3") then 
+        writefile(AssetName..".mp3", game:HttpGet(Url)) 
+    end
+
+    local Sound = Instance.new("Sound")
+    Sound.SoundId = getcustomasset(AssetName..".mp3", true)
+    return Sound 
+end
+
+local CustomMusic = getGitSoundId("https://github.com/nervehammer1/throwawaystuff/raw/refs/heads/main/NightmareAmbient.mp3", "NightmareModeAmbient")
+CustomMusic.Parent = game.Workspace
+CustomMusic.Looped = true
+CustomMusic.Volume = 2
+CustomMusic:Play()
+
+task.spawn(function()
+    task.wait()
+    if game:GetService("Lighting"):FindFirstChild("Atmosphere") then
+        game.Lighting.Atmosphere:Destroy()
+    end
+    game.Lighting.FogColor = Color3.new(0.133333, 0.149020, 0.239216)
+    game.Lighting.FogEnd = 70
+    game.Lighting.FogStart = 0
+end)
+
+game.Workspace.CurrentRooms.ChildAdded:Connect(function(Room)
+    task.wait(1.5)
+    if Room:IsA("Model") then
+        if tonumber(Room.Name) ~= nil then
+            for _, v in pairs(Room.Parts:GetDescendants()) do
+                if v:IsA("Part") or v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("UnionOperation") then
+                    if v.Material == Enum.Material.Wood or v.Material == Enum.Material.WoodPlanks then
+                        v.Color = Color3.fromRGB(60, 60, 60)
+                        v.Material = Enum.Material.Limestone
+                        v.MaterialVariant = ""
+                    end
+                end
+            end
+        end
+    end
+end)
+

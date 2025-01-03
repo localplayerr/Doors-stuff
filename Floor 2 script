@@ -26,6 +26,8 @@ task.spawn(function()
     game.Lighting.FogStart = 0
 end)
 
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Floor 2 theme recreate by localplayer loaded",true)
+
 game.Workspace.CurrentRooms.ChildAdded:Connect(function(Room)
     task.wait(1.5)
     if Room:IsA("Model") then

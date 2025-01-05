@@ -1,1 +1,140 @@
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("you dumbass",true)
+local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/V2/Source.lua"))()
+local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+function light(tim,color0,color1)
+	local tweenservice = game:GetService("TweenService")
+	local info = TweenInfo.new(tim,Enum.EasingStyle.Linear)
+	for _ , light in pairs(game.Workspace.CurrentRooms:GetDescendants()) do
+		if light:IsA("Light") or light:IsA("SurfaceLight") or light:IsA("SpotLight") then
+			local target = {Color = color1}
+			local anim = tweenservice:Create(light,info,target)
+			anim:Play()
+		end
+		if light:IsA("MeshPart") and light.Material == Enum.Material.Neon  and light.Name ~= "Skybox" then
+			local target1 = {Color = color0}
+			local anim2 = tweenservice:Create(light,info,target1)
+			anim2:Play()
+		end
+	end
+end
+
+local entity = spawner.Create({
+	Entity = {
+		Name = "Template Entity",
+		Asset = "rbxassetid://17508750627",
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = false,
+			Duration = 1
+		},
+		Shatter = false,
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = false
+	},
+	CameraShake = {
+		Enabled = true,
+		Range = 100,
+		Values = {1.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
+	},
+	Movement = {
+		Speed = 200,
+		Delay = 3,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = true,
+		Type = "Ambush", -- "Blitz"
+		Min = 3,
+		Max = 3,
+		Delay = 0
+	},
+	Damage = {
+		Enabled = true,
+		Range = 50,
+		Amount = 125
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 60,
+		Resist = false,
+		Break = true
+	},
+	Death = {
+		Type = "Guiding", -- "Curious"
+		Hints = {"You died to who you call Depth...", "When he spawns lights turn blue", "Hide if this happened!"},
+		Cause = "Detph"
+	}
+})
+
+entity:SetCallback("OnDespawned", function()
+	if _G.detph == false then
+	    	achievementGiver({
+		    Title = "Blue Depths",
+		    Desc = "Do you think I only fly by once?",
+		    Reason = "Encounter Depth",
+		    Image = "http://www.roblox.com/asset/?id=120436258363580"
+		})
+		_G.detph = true
+	end
+end)
+
+entity:SetCallback("OnDamagePlayer", function(newHealth)
+	local sound = Instance.new("Sound",game.Workspace)
+	sound.SoundId = "rbxassetid://131138848"
+	local octave = Instance.new("PitchShiftSoundEffect",sound)
+	octave.Octave = 0.5
+	local level = Instance.new("DistortionSoundEffect",sound)
+	level.Level = 0.97
+	
+	local screen = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
+	
+	local background = Instance.new("Frame",screen)
+	background.AnchorPoint = Vector2.new(0.5,0.5)
+	background.Size = UDim2.new(10,0,10,0)
+	background.BackgroundColor3 = Color3.fromRGB(0, 157, 255)
+	local image = Instance.new("ImageLabel",screen)
+	image.AnchorPoint = Vector2.new(0.5,0.5)
+	image.Position = UDim2.new(0.5, 0, 0.5, 0)
+	image.BackgroundTransparency = 1
+	image.Size = UDim2.new(0, 50, 0, 50)
+	image.LayoutOrder = 0
+	image.BorderSizePixel = 0
+	image.Image = "http://www.roblox.com/asset/?id=11278229112"
+	
+	task.spawn(function()
+		while task.wait(0.08) do
+			background.BackgroundColor3 = Color3.fromRGB(0, 17, 255)
+			task.wait(0.08)
+			background.BackgroundColor3 = Color3.fromRGB(0, 157, 255)
+		end
+	end)
+	
+	sound:Play()
+	
+	game:GetService("TweenService"):Create(image,TweenInfo.new(0.25,Enum.EasingStyle.Linear),{Size = UDim2.new(0, 1300, 0, 1300)}):Play()
+	task.wait(1)
+	screen:Destroy()
+end)
+
+light(2,Color3.fromRGB(127, 249, 255),Color3.fromRGB(0, 174, 255))
+
+local sound = Instance.new("Sound",game.Workspace)
+sound.SoundId = "rbxassetid://12221990"
+sound.PlaybackSpeed = 0.2
+sound.Volume = 5
+local octave = Instance.new("PitchShiftSoundEffect",sound)
+octave.Octave = 0.5
+local lvl = Instance.new("DistortionSoundEffect",sound)
+lvl.Level = 0.85
+
+sound:Play()
+wait(2)
+sound:Destroy()
+
+entity:Run()
+task.wait(5)
+_G.stats.Value += 45

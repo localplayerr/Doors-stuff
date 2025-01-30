@@ -16,11 +16,11 @@ function functions.LightRecolor(tim,color0,color1)
 	end
 end
 
-function functions.LightRecolorAdvanced(color0,color1,delay,delaybetweenrooms,tweeninfo,onlylastroom)
+function functions.LightRecolorAdvanced(color0,color1,StandColor,delay,delaybetweenrooms,tweeninfo,onlylastroom)
 	local tweenservice = game:GetService("TweenService")
 	for _ , room in game.Workspace.CurrentRooms:GetChildren() do
 		for _ , light in room:GetDescendants() do
-			if onlylastroom == true then room = game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.CurrentRooms:GetChildren() - 1]
+			if onlylastroom == true then room = game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.CurrentRooms:GetChildren() - 1] end
 			if light:IsA("Light") or light:IsA("SurfaceLight") or light:IsA("SpotLight") then
 				local target = {Color = color1}
 				local anim = tweenservice:Create(light,tweeninfo,target)

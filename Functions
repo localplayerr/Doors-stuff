@@ -19,20 +19,22 @@ end
 function functions.LightRecolorAdvanced(color0,color1,StandColor,delay,delaybetweenrooms,tweeninfo,onlylastroom)
 	local tweenservice = game:GetService("TweenService")
 	for _ , room in game.Workspace.CurrentRooms:GetChildren() do
-		for _ , light in room:GetDescendants() do
-			if onlylastroom == true then room = game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.CurrentRooms:GetChildren() - 1] end
-			if light:IsA("Light") or light:IsA("SurfaceLight") or light:IsA("SpotLight") then
-				local target = {Color = color1}
-				local anim = tweenservice:Create(light,tweeninfo,target)
-				anim:Play()
-	      			task.wait(delay)
-			elseif light:IsA("MeshPart") and light.Material == Enum.Material.Neon  and light.Name ~= "Skybox" then
-				local target1 = {Color = color0}
-				local anim2 = tweenservice:Create(light,tweeninfo,target1)
-				anim2:Play()
-	      			task.wait(delay)
+		task.spawn(function()
+			for _ , light in room:GetDescendants() do
+				if onlylastroom == true then room = game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.CurrentRooms:GetChildren() - 1] end
+				if light:IsA("Light") or light:IsA("SurfaceLight") or light:IsA("SpotLight") then
+					local target = {Color = color1}
+					local anim = tweenservice:Create(light,tweeninfo,target)
+					anim:Play()
+		      			task.wait(delay)
+				elseif light:IsA("MeshPart") and light.Material == Enum.Material.Neon  and light.Name ~= "Skybox" then
+					local target1 = {Color = color0}
+					local anim2 = tweenservice:Create(light,tweeninfo,target1)
+					anim2:Play()
+		      			task.wait(delay)
+				end
 			end
-		end
+		end)
 		task.wait(delaybetweenrooms)
 	end
 end

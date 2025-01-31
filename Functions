@@ -26,30 +26,6 @@ function LightRecolor(tim,color0,color1,standcolor)
 	end
 end
 
-function functions.LightRecolorAdvanced(color0,color1,StandColor,delay,delaybetweenrooms,tweeninfo,onlylastroom)
-	local tweenservice = game:GetService("TweenService")
-	for _ , room in game.Workspace.CurrentRooms:GetChildren() do
-		task.spawn(function()
-			for _ , light in room:GetDescendants() do
-				if onlylastroom == true then room = game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.CurrentRooms:GetChildren() - 1] end
-				if light:IsA("Light") or light:IsA("SurfaceLight") or light:IsA("SpotLight") then
-					local target = {Color = color1}
-					local anim = tweenservice:Create(light,tweeninfo,target)
-					anim:Play()
-		      			task.wait(delay)
-				elseif light:IsA("MeshPart") and light.Material == Enum.Material.Neon  and light.Name ~= "Skybox" then
-					local target1 = {Color = color0}
-					local anim2 = tweenservice:Create(light,tweeninfo,target1)
-					anim2:Play()
-		      			task.wait(delay)
-				end
-			end
-		end)
-		task.wait(delaybetweenrooms)
-	end
-end
-
-
 function functions.TitleLocation(text,duration)
     local intro = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.IntroText:Clone()
     intro.Parent = game.Players.LocalPlayer.PlayerGui.MainUI
@@ -58,7 +34,7 @@ function functions.TitleLocation(text,duration)
     intro.TextTransparency = 1
     game.TweenService:Create(intro.Underline, TweenInfo.new(1), {Size = UDim2.new(0.9, 0, 0.015, 6)}):Play()
     game.TweenService:Create(intro, TweenInfo.new(1), {TextTransparency = 0}):Play()
-    if duration ~= nil then task.wait(duration) else task.wait(6.5) end
+    if duration ~= nil then task.wait(duration) else task.wait(5.3) end
     game.TweenService:Create(intro.Underline, TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out), {Size = UDim2.new(0.5, 0, 0.015, 6)}):Play()
     game.TweenService:Create(intro.Underline, TweenInfo.new(2), {ImageTransparency = 1}):Play()
     game.TweenService:Create(intro, TweenInfo.new(2), {TextTransparency = 1}):Play()

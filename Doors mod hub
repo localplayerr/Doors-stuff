@@ -134,21 +134,6 @@ local imrMode = Tab:CreateButton({
    end,
 })
 
-local Imposmode = Tab:CreateButton({
-   Name = "Imposible Mode",
-   Callback = function()
-        task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Idk-lol2/xmasmode/refs/heads/main/xmasmode.txt"))()
-        end)
-        Rayfield:Notify({
-        Title = "You actived doors Impossible mode!",
-        Content = "Idk who made this",
-        Duration = 4,
-        Image = 0,
-        })
-   end,
-})
-
 local f2 = Tab:CreateButton({
    Name = "Floor 2 theme",
    Callback = function()

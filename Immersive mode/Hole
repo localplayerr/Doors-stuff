@@ -23,13 +23,12 @@ task.spawn(function()
 
     	end
 end)
-game.Workspace.CurrentRooms.ChildAdded:connect(function()
-	damages = false
-  _G.baseval = -2
-    model.Ambience:Destroy()
-    model.Spawn:Destroy()
-    local anim1 = tweenservice:Create(model.atta.Light,TweenInfo.new(2,Enum.EasingStyle.Linear),{Range = 0})
-    anim1:Play()
-    task.wait(2)
-    model:Destroy()
-end)
+game.Workspace.CurrentRooms.ChildAdded:wait()
+damages = false
+_G.baseval = -2
+model.Ambience:Destroy()
+model.Spawn:Destroy()
+local anim1 = tweenservice:Create(model.atta.Light,TweenInfo.new(2,Enum.EasingStyle.Linear),{Range = 0})
+anim1:Play()
+task.wait(2)
+model:Destroy()

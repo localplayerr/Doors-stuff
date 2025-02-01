@@ -1,7 +1,7 @@
 local functions = {}
 
 
-function LightRecolor(tim,color0,color1,standcolor)
+function functions.LightRecolor(tim,color0,color1,standcolor)
 	local tweenservice = game:GetService("TweenService")
 	local info = TweenInfo.new(tim,Enum.EasingStyle.Linear)
 	for _ , light in pairs(game.Workspace.CurrentRooms:GetDescendants()) do

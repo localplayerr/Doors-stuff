@@ -1,5 +1,5 @@
 warn("Loading")
-_G.ver = 0.61
+_G.ver = 0.62
 
 local sync = loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Utility/SyncHelper.lua"))()
 local seed = game.ReplicatedStorage.GameData.GameSeed.Value

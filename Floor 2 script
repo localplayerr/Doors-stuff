@@ -1,3 +1,5 @@
+
+
 local function getGitSoundId(GithubSoundPath: string, AssetName: string): Sound
     local Url = GithubSoundPath
 
@@ -28,7 +30,7 @@ end)
 
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Floor 2 theme recreate by localplayer loaded",true)
 
-game.Workspace.CurrentRooms.ChildAdded:Connect(function(Room)
+function convert(Room)
     task.wait(1.5)
     if Room:IsA("Model") then
         if tonumber(Room.Name) ~= nil then
@@ -37,11 +39,23 @@ game.Workspace.CurrentRooms.ChildAdded:Connect(function(Room)
                     if v.Material == Enum.Material.Wood or v.Material == Enum.Material.WoodPlanks then
                         v.Color = Color3.fromRGB(60, 60, 60)
                         v.Material = Enum.Material.Limestone
-                        v.MaterialVariant = ""
+                    end
+                end
+            end
+            for _ , v in Room:GetDescendants() do
+                if v.Name == "Door" and v:IsA("MeshPart") then
+                    v.Color = Color3.fromRGB(70,70,70)
+                    v.Material = Enum.Material.Slate
+                    if v:FindFirstChild("Sign") then
+                        v.Sign:Destroy()
                     end
                 end
             end
         end
     end
-end)
+end
 
+game.Workspace.CurrentRooms.ChildAdded:connect(convert)
+
+convert(game.Workspace.CurrentRooms:GetChildren()[1])
+convert(game.Workspace.CurrentRooms:GetChildren()[2])

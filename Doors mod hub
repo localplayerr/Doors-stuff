@@ -79,22 +79,16 @@ local Button = hard:CreateButton({
          task.spawn(function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Main%20Script"))()
          end)
-         task.spawn(function() 
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Floor%202%20script"))()
-         end)
          task.spawn(function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Hardcore%20v4%20recreate/main%20code"))() 
          end)
-         task.spawn(function() 
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/kodbolx/kodbolhub/refs/heads/main/Nightmare%20Mode/Nightmare%20Mode.lua"))()
-         end) 
          task.spawn(function() 
             loadstring(game:HttpGet("https://raw.githubusercontent.com/FenzerPlayerPressure/Fragmented-mode/refs/heads/main/Fragmented.lua"))()
          end) 
          task.spawn(function()
             Rayfield:Notify({
                Title = "It will be evry hard",
-               Content = "Nightmare mode pack executed",
+               Content = "Extreme mode pack executed",
                Duration = 6.5,
                Image = 0,
             })

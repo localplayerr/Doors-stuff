@@ -95,3 +95,21 @@ local Button = hard:CreateButton({
          end)
    end,
 })
+
+local imp = Tab:CreateSection("Literally impossible difficulty")
+
+local Button = imp:CreateButton({
+   Name = "Good luck",
+   Callback = function()
+         
+         task.spawn(function()
+            Rayfield:Notify({
+               Title = "Good luck",
+               Content = "Good luck",
+               Duration = 6.5,
+               Image = 0,
+            })
+         end)
+   end,
+})
+

@@ -101,7 +101,36 @@ local imp = Tab:CreateSection("Literally impossible difficulty")
 local Button = imp:CreateButton({
    Name = "Good luck",
    Callback = function()
-         
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/J63633S/Laver-mode/refs/heads/main/Main%20script"))()
+         end
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Main%20Script"))()
+         end
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Hardcore%20v4%20recreate/main%20code"))() 
+         end
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Floor%202%20script"))()
+         end
+         task.spawn(function()
+            loadstring(game:HttpGet("https://pastebin.com/Wy7PSxjz"))()
+         end
+         task.spawn(function()
+            loadstring(game:HttpGet("https://glot.io/snippets/gpw1ypnl5o/raw/main.lua"))()
+         end
+         task.spawn(function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/g4nvj2EP"))()
+         end
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/FenzerPlayerPressure/Crazy-Mode/refs/heads/main/Hard%20Mode%20By%20Linxy%20Rewritten%201.0%20fix.Lua"))()
+         end
+         task.spawn(function()
+            loadstring(game:HttpGet("https://pastefy.app/Jt5zuCk3/raw"))()
+         end
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/FenzerPlayerPressure/Doors-Recall-Mode/refs/heads/main/Recall%20Mode%20V1.Lua"))()
+         end
          task.spawn(function()
             Rayfield:Notify({
                Title = "Good luck",

@@ -1,18 +1,5 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-if game.PlaceId == 6516141723 then
-   Rayfield:Notify({
-   Title = "Execute script in game dumbass",
-   Content = "DAL;SDHF;ASEHFIUAL;WPEHFNLKSFH",
-   Duration = 10,
-   Image = 0,
-})
-
-task.wait(10)
-error("you stupid")
-
-end
-
 Rayfield:Notify({
    Title = "Thank you for loading Mod Hub by me",
    Content = "Made by LocalPlayer",
@@ -58,124 +45,59 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Modes", 12671460834) -- Title, Image
 
-local Hardcore = Tab:CreateButton({
-   Name = "Old Hardcore mode",
-   Callback = function()
-            task.spawn(function()
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Hardcore%20v4%20recreate/main%20code"))()
-            end)
-            Rayfield:Notify({
-            Title = "You actived doors hardcore mode!",
-            Content = "Made by me",
-            Duration = 4,
-            Image = 0,
-            })
-   end,
-})
+local hard = Tab:CreateSection("Hard difficulty")
 
-local CreppyMode = Tab:CreateButton({
-   Name = "Creppy Mode",
+local Button = hard:CreateButton({
+   Name = "Nightmare mode",
    Callback = function()
-        task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/DripCapybara/Doors-Modes/refs/heads/main/CreepyMode/ObfuscatedMain.lua"))()
-        end)
-        Rayfield:Notify({
-        Title = "You actived doors Creppy mode!",
-        Content = "Made by dripocapy",
-        Duration = 4,
-        Image = 0,
-        })
-   end,
-})
-
-local LavaMode = Tab:CreateButton({
-   Name = "Lava Mode",
-   Callback = function()
-        _G.DEBUG_LAVA = false
-        task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Game/FloorIsLava.lua"))()
-        end)
-        Rayfield:Notify({
-        Title = "You actived doors Lava mode!",
-        Content = "Made by chrono",
-        Duration = 4,
-        Image = 0,
-        })
-   end,
-})
-
-local HorrorMode = Tab:CreateButton({
-   Name = "Horror Mode",
-   Callback = function()
-        task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Game/Horror.lua"))()
-        end)
-        Rayfield:Notify({
-        Title = "You actived doors Horror mode!",
-        Content = "Made by chrono",
-        Duration = 4,
-        Image = 0,
-        })
-   end,
-})
-
-local imrMode = Tab:CreateButton({
-   Name = "Cristhmas Theme",
-   Callback = function()
-        task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Idk-lol2/xmasmode/refs/heads/main/xmasmode.txt"))()
-        end)
-        Rayfield:Notify({
-        Title = "You actived doors Cristhmas theme!",
-        Content = "Made by chill guy",
-        Duration = 4,
-        Image = 0,
-        })
-   end,
-})
-
-local f2 = Tab:CreateButton({
-   Name = "Floor 2 theme",
-   Callback = function()
-        task.spawn(function()
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Main%20Script"))()
+         end)
+         task.spawn(function() 
             loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Floor%202%20script"))()
-        end)
-        Rayfield:Notify({
-        Title = "You actived doors floor 2 theme!",
-        Content = "Made by me",
-        Duration = 4,
-        Image = 0,
-        })
+         end)
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Hardcore%20v4%20recreate/main%20code"))() 
+         end)
+         task.spawn(function() 
+            loadstring(game:HttpGet("https://pastebin.com/Wy7PSxjz"))()
+         end) 
+         task.spawn(function()
+            Rayfield:Notify({
+               Title = "It will be evry hard",
+               Content = "Nightmare mode pack executed",
+               Duration = 6.5,
+               Image = 0,
+            })
+         end)
    end,
 })
 
--- items
-
-local Itm = Window:CreateTab("Items", 12519056591) -- Title, Image
-
-local f2 = Itm:CreateButton({
-   Name = "Glitch scanner",
+local Button = hard:CreateButton({
+   Name = "Extreme mode",
    Callback = function()
-        task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Agadigas/Doors/refs/heads/main/Glitched%20Scanner%20by%20Custom%20Doors"))()
-        end)
-   end,
-})
-
-local f2 = Itm:CreateButton({
-   Name = "Moonlight bottle",
-   Callback = function()
-        task.spawn(function()
-            loadstring(game:HttpGet('https://gist.githubusercontent.com/IdkMyNameLoll/04d7dd5e02688624b958b8c2604b924c/raw/9e86b34249f44ed2dd433176e67daaf3db30cde8/MoonBottle'))()
-        end)
-   end,
-})
-
-local f2 = Itm:CreateButton({
-   Name = "Spirallight bottle",
-   Callback = function()
-        task.spawn(function()
-            loadstring(game:HttpGet('https://gist.githubusercontent.com/IdkMyNameLoll/8b05c837bea9effac2554340465b4be1/raw/3f3be0ee72e7f153db39a16a40fa63dce6cde72d/SpiralBottle'))()
-        end)
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Main%20Script"))()
+         end)
+         task.spawn(function() 
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Floor%202%20script"))()
+         end)
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Hardcore%20v4%20recreate/main%20code"))() 
+         end)
+         task.spawn(function() 
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/kodbolx/kodbolhub/refs/heads/main/Nightmare%20Mode/Nightmare%20Mode.lua"))()
+         end) 
+         task.spawn(function() 
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/FenzerPlayerPressure/Fragmented-mode/refs/heads/main/Fragmented.lua"))()
+         end) 
+         task.spawn(function()
+            Rayfield:Notify({
+               Title = "It will be evry hard",
+               Content = "Nightmare mode pack executed",
+               Duration = 6.5,
+               Image = 0,
+            })
+         end)
    end,
 })

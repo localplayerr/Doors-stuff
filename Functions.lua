@@ -34,4 +34,41 @@ function functions.TitleLocation(text,duration)
     intro:Destroy()
 end
 
+local function functions.GetAllNodes(reversed)
+	local Nodes = {}
+	if reversed ~= true then
+		for i = 1 , game.Workspace.CurrentRooms:GetChildren() , 1 do
+			local room = game.Workspace.CurrentRooms:GetChildren()[i]
+			local path = room:FindFirstChild("PathfindNodes")
+			if path then
+				for _ , nod in path:GetChildren() do
+					Nodes[#Nodes + 1] = nod.CFrame + Vector3.new(0,4,0)
+				end
+			end
+			if room:FindFirstChild("RoomExit") then
+				Nodes[#Nodes + 1] = room.RoomExit.CFrame
+			end
+		end
+	else
+		for i = game.Workspace.CurrentRooms:GetChildren() , 1 , -1 do
+			local room = game.Workspace.CurrentRooms:GetChildren()[i]
+			local path = room:FindFirstChild("PathfindNodes")
+			if room:FindFirstChild("RoomEntrance") then
+				Nodes[#Nodes + 1] = room.RoomEntrance.CFrame
+			end
+			if path then
+				local helper = {}
+				for _ , nod in path:GetChildren() do
+					if nod:tonumber() ~= nil then
+						helper[#helper + 1] = nod.CFrame + Vector3.new(0,4,0)
+					end
+				end
+				table.sort(helper, function(a, b) return tonumber(a.Name) > tonumber(b.Name) end)
+				for _ , v in helper do Nodes[#Nodes + 1] = v end
+			end
+		end
+	end
+	return Nodes
+end
+
 return functions

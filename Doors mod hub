@@ -8,10 +8,10 @@ Rayfield:Notify({
 })
 
 local Window = Rayfield:CreateWindow({
-   Name = "Mods Hub by localplayer",
+   Name = "Local Hub",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-   LoadingTitle = "Mods Hub for doors",
-   LoadingSubtitle = "by LocalPlayer",
+   LoadingTitle = "Loading...",
+   LoadingSubtitle = "Made by LocalPlayer",
    Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
    DisableRayfieldPrompts = false,
@@ -20,7 +20,7 @@ local Window = Rayfield:CreateWindow({
    ConfigurationSaving = {
       Enabled = true,
       FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Mods Hub by localplayer"
+      FileName = "LocalHub"
    },
 
    Discord = {
@@ -45,27 +45,18 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Modes", 12671460834) -- Title, Image
 
-local hard = Tab:CreateSection("Hard difficulty")
+local hard = Tab:CreateSection("Modes by me")
 
-local Button = hard:CreateButton({
-   Name = "Nightmare mode",
+hard:CreateButton({
+   Name = "Immersive mode",
    Callback = function()
          task.spawn(function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Main%20Script"))()
          end)
-         task.spawn(function() 
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Floor%202%20script"))()
-         end)
-         task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Hardcore%20v4%20recreate/main%20code"))() 
-         end)
-         task.spawn(function() 
-            loadstring(game:HttpGet("https://pastebin.com/Wy7PSxjz"))()
-         end) 
          task.spawn(function()
             Rayfield:Notify({
-               Title = "It will be evry hard",
-               Content = "Nightmare mode pack executed",
+               Title = "Immersive mode successfully executed!",
+               Content = "Made by me",
                Duration = 6.5,
                Image = 0,
             })
@@ -73,22 +64,16 @@ local Button = hard:CreateButton({
    end,
 })
 
-local Button = hard:CreateButton({
-   Name = "Extreme mode",
+hard:CreateButton({
+   Name = "Hardcore v4 recreate",
    Callback = function()
          task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Main%20Script"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Hardcore%20v4%20recreate/main%20code"))()
          end)
-         task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Hardcore%20v4%20recreate/main%20code"))() 
-         end)
-         task.spawn(function() 
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/FenzerPlayerPressure/Fragmented-mode/refs/heads/main/Fragmented.lua"))()
-         end) 
          task.spawn(function()
             Rayfield:Notify({
-               Title = "It will be evry hard",
-               Content = "Extreme mode pack executed",
+               Title = "Hardcore v4 recreate successfully executed!",
+               Content = "Recreate by me, originally by noonie and ping",
                Duration = 6.5,
                Image = 0,
             })
@@ -96,45 +81,84 @@ local Button = hard:CreateButton({
    end,
 })
 
-local imp = Tab:CreateSection("Literally impossible difficulty")
+hard:CreateButton({
+   Name = "Mayhem mode",
+   Callback = function()
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Hardcore%20v4%20recreate/main%20code"))()
+         end)
+         task.spawn(function()
+            Rayfield:Notify({
+               Title = "Mayhem mode successfully executed!",
+               Content = "Recreate by me, originally by amy",
+               Duration = 6.5,
+               Image = 0,
+            })
+         end)
+   end,
+})
 
-local Button = imp:CreateButton({
-   Name = "Good luck",
+hard:CreateButton({
+   Name = "Hardcore mode",
+   Callback = function()
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/DripCapybara/Doors-Mode-Remakes/refs/heads/main/HardcoreFixed.lua"))()
+         end)
+         task.spawn(function()
+            Rayfield:Notify({
+               Title = "Hardcore mode successfully executed!",
+               Content = "Fixed by dripocapy, originally by noonie and ping",
+               Duration = 6.5,
+               Image = 0,
+            })
+         end)
+   end,
+})
+
+hard:CreateButton({
+   Name = "Creepy mode",
+   Callback = function()
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/DripCapybara/Doors-Modes/refs/heads/main/CreepyMode/ObfuscatedMain.lua"))()
+         end)
+         task.spawn(function()
+            Rayfield:Notify({
+               Title = "Creepy mode successfully executed!",
+               Content = "Made by dripocapy",
+               Duration = 6.5,
+               Image = 0,
+            })
+         end)
+   end,
+})
+
+hard:CreateButton({
+   Name = "Darkness mode",
+   Callback = function()
+         task.spawn(function()
+            loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\83\99\114\105\112\116\53\48\51\57\51\57\50\47\68\97\114\107\110\101\115\115\77\111\100\101\47\109\97\105\110\47\83\99\114\105\112\116\47\76\111\97\100\101\114\46\108\117\97\34\41\41\40\41")()
+         end)
+         task.spawn(function()
+            Rayfield:Notify({
+               Title = "Darkness mode successfully executed!",
+               Content = "Made by no?wнy¿wнaт",
+               Duration = 6.5,
+               Image = 0,
+            })
+         end)
+   end,
+})
+
+hard:CreateButton({
+   Name = "Laver mode",
    Callback = function()
          task.spawn(function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/J63633S/Laver-mode/refs/heads/main/Main%20script"))()
-         end
-         task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Main%20Script"))()
-         end
-         task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Hardcore%20v4%20recreate/main%20code"))() 
-         end
-         task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Floor%202%20script"))()
-         end
-         task.spawn(function()
-            loadstring(game:HttpGet("https://pastebin.com/Wy7PSxjz"))()
-         end
-         task.spawn(function()
-            loadstring(game:HttpGet("https://glot.io/snippets/gpw1ypnl5o/raw/main.lua"))()
-         end
-         task.spawn(function()
-            loadstring(game:HttpGet("https://pastebin.com/raw/g4nvj2EP"))()
-         end
-         task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/FenzerPlayerPressure/Crazy-Mode/refs/heads/main/Hard%20Mode%20By%20Linxy%20Rewritten%201.0%20fix.Lua"))()
-         end
-         task.spawn(function()
-            loadstring(game:HttpGet("https://pastefy.app/Jt5zuCk3/raw"))()
-         end
-         task.spawn(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/FenzerPlayerPressure/Doors-Recall-Mode/refs/heads/main/Recall%20Mode%20V1.Lua"))()
-         end
+         end)
          task.spawn(function()
             Rayfield:Notify({
-               Title = "Good luck",
-               Content = "Good luck",
+               Title = "Laver mode successfully executed!",
+               Content = "Made by silly cat cat",
                Duration = 6.5,
                Image = 0,
             })
@@ -142,3 +166,19 @@ local Button = imp:CreateButton({
    end,
 })
 
+hard:CreateButton({
+   Name = "Horror mode",
+   Callback = function()
+         task.spawn(function()
+            oadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Game/Horror.lua"))()
+         end)
+         task.spawn(function()
+            Rayfield:Notify({
+               Title = "Horror mode successfully executed!",
+               Content = "Made by chrono",
+               Duration = 6.5,
+               Image = 0,
+            })
+         end)
+   end,
+})

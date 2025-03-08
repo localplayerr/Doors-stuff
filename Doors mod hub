@@ -170,7 +170,7 @@ hard:CreateButton({
    Name = "Horror mode",
    Callback = function()
          task.spawn(function()
-            oadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Game/Horror.lua"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Game/Horror.lua"))()
          end)
          task.spawn(function()
             Rayfield:Notify({
@@ -182,3 +182,48 @@ hard:CreateButton({
          end)
    end,
 })
+
+local item = Window:CreateTab("Items", 12671460834) -- Title, Image
+
+item:CreateButton({
+   Name = "Crucifix everything (not fe)",
+   Callback = function()
+         task.spawn(function()
+            local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Doors/Crucifix%20Everything/Source.lua"))()
+            module.GiveCrucifix({
+                Type = 1,
+                Uses = nil, -- nil : infinite uses
+                Resist = false,
+                EntitiesOnly = false, -- true : custom entities only
+                IgnoreList = {}
+            })
+         end)
+         task.spawn(function()
+            Rayfield:Notify({
+               Title = "Crucifix on everything successfully given!",
+               Content = "Made by vynixu, hold right mouse button and preess q",
+               Duration = 6.5,
+               Image = 0,
+            })
+         end)
+   end,
+})
+
+item:CreateButton({
+   Name = "Supspace mine",
+   Callback = function()
+         task.spawn(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/CatEnddroid/Subs-Space-Tripmine/refs/heads/main/SubspacesTripmine.lua"))()
+         end)
+         task.spawn(function()
+            Rayfield:Notify({
+               Title = "Supspace mine successfully given!",
+               Content = "idk who made it",
+               Duration = 6.5,
+               Image = 0,
+            })
+         end)
+   end,
+})
+
+local ent = Window:CreateTab("Entities spawn", 12671460834) -- Title, Image

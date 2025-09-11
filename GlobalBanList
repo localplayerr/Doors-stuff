@@ -1,8 +1,8 @@
 return {
 {
-user = "username",
+user = 'username',
 userid = 0, 
-hwid = '4E82C34E-B557-4E3A-B51B-370D59E8F8CA',
-reason = "reason"
+hwid = '',
+reason = 'reason'
 }
 }

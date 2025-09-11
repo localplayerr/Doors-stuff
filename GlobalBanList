@@ -1,0 +1,3 @@
+return {
+{name = "username", userid = 0, hwid = nil}
+}

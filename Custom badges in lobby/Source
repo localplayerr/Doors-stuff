@@ -1,111 +1,107 @@
-local sor = {}
+--- variables and functions ---
 
-function sor.createbadge(a)
-    local applyed = false
+local Player = game.Players.LocalPlayer
+local AchievementsFrame = Player.PlayerGui.MainUI.LobbyFrame.Achievements
+local List = AchievementsFrame.List
+local Frame = AchievementsFrame.Frame
+local TextHolder = Frame.TextHolder
+local Stuff = Player.PlayerGui['NameUI' .. Player.Name].Stuff.Frame
 
-    local achi = game.Players.LocalPlayer.PlayerGui.MainUI.LobbyFrame.Achievements
-    local sut = achi.Frame
-    local stuf = game.Players.LocalPlayer.PlayerGui["NameUI".. game.Players.LocalPlayer.Name].Stuff.Frame
+local example = {
+    Title = 'Example',
+    Desc = 'Example',
+    Reason = 'Example',
+    Image = '',
+    Locked = false,
+    Secret = true,
+    Color = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 255)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 255)),
+    }),
+}
 
-    if a["category"] == "Entities" then
-        clonedbadge = achi.List.SurviveAmbush
-    elseif a["category"] == "Crucifix" then
-        clonedbadge = achi.List.UseCrucifix
-    elseif a["category"] == "Floors" then
-        clonedbadge = achi.List.EscapeHotel
-    elseif a["category"] == "General" then
-        clonedbadge = achi.List.Join
+local Positions = {
+    general = 100001,
+    entities = 200040,
+    crucifix = 300100,
+    floors = 401000,
+}
+
+function ShowBadgeInfo(Info)
+    if Info.Secret == false then
+        Frame.ImageLabel.OutlineImage.Image = 'rbxassetid://116382081183309'
+        TextHolder.IsSecret.Visible = false
     else
-        error("Invalid category")
+        Frame.ImageLabel.OutlineImage.Image = 'rbxassetid://106743111263022'
+        TextHolder.IsSecret.Visible = true
     end
 
-    local apli = sut.Apply:Clone()
-    apli.Parent = sut
-    local applied = sut.Applied:Clone()
-    applied.Parent = sut
-    apli.Name = "apli"
-    applied.Name = "aplyed"
+    Frame.ImageLabel.Image = Info.Image
 
-    local newbadge = clonedbadge:Clone()
-    newbadge.Parent = achi.List
-    newbadge.Image = a["logo"]
-    for _ , v in newbadge:GetChildren() do
-        if v:FindFirstChild("UIGradient") then
-            v.UIGradient.Color = a["color"]
-        end
-    end
+    TextHolder.Desc.Text = Info.Desc
+    TextHolder.Reason.Text = Info.Reason
+    TextHolder.Title.Text = Info.Title
 
-    sut.Title.Changed:Connect(function()
-        print("stats changed")
-        if sut.Title.Text ~= a["title"] then
-            print("returning stats to normal")
-            apli.Visible = false
-            applied.Visible = false
-            sut.Apply.Visible = true
-            sut.Applied.Visible = false
-        end
-    end)
-
-    stuf.TextBadge.Changed:Connect(function()
-        if stuf.TextBadge.Text ~= a["title"] then
-            applyed = false
-            newbadge.Icons.Star.Visible = false
-        end
-    end)
-
-    function applybadge()
-        print("badge aplied")
-        apli.Visible = false
-        applied.Visible = true
-        stuf.TextBadge.Text = a["title"]
-        stuf.TextBadge.ThemeGradient.Color = a["color"]
-        for _ , v in stuf.IconBadge:GetChildren() do
-            if v:FindFirstChild("ThemeGradient") then
-                v.ThemeGradient.Color = a["color"]
-            end
-        end
-        stuf.IconBadge.Image = a["logo"]
-        applyed = true
-    end
-
-    newbadge.MouseButton1Click:Connect(function()
-        print("basge opened")
-        sut.Title.Text = a["title"]
-        sut.Title.ThemeGradient.Color = a["color"]
-        sut.Reason.Text = a["reason"]
-        sut.Desc.Text = a["description"]
-        sut.ImageLabel.Image = a["logo"]
-        sut.Apply.Visible = false
-        sut.Applied.Visible = false
-        if a["prize"] == true then
-            sut.Prize.Knobs.Text = a["knobs"]
-            sut.Prize.Revives.Text = a["revives"]
-            sut.Prize.Knobs.Visible = true
-            sut.Prize.Revives.Visible = true
-            sut.Prize.KnobsIcon.Visible = true
-            sut.Prize.RevivesIcon.Visible = true
-        end
-        sut.Visible = true
-        if applyed == false then
-            applied.Visible = false
-            apli.Visible = true
-        else
-            apli.Visible = false
-            applied.Visible = true
-        end
-        print("applied button stats")
-        apli.MouseButton1Click:Connect(function()
-            for _ , v in achi.List:GetChildren() do 
-                if v:FindFirstChild("UIStroke") then
-                    v.UIStroke.Thickness = 2
-                    v.Icons.Star.Visible = false
-                end
-            end
-            newbadge.Icons.Star.Visible = true
-            newbadge.UIStroke.Thickness = 5
-            applybadge()
-        end)
-    end)
+    TextHolder.Title.ThemeGradient.Color = Info.Color
+    Frame.ImageLabel.OutlineImage.ThemeGradient.Color = example.Color
 end
 
-return sor
+function FlexBadge(Info)
+    Stuff.TextBadge.Text.Changed:wait()
+
+    Stuff.TextBadge.Text = Info.Title
+    Stuff.ThemeGradient.Color = Info.Color
+
+    Stuff.IconBadge.Image = Info.Image
+    Stuff.IconBadge.OutlineImage.ThemeGradient.Color = Info.Color
+
+    if Info.Secret == false then
+        Stuff.IconBadge.OutlineImage.Image = 'rbxassetid://116382081183309'
+        TextHolder.IsSecret.Visible = false
+    else
+        Stuff.IconBadge.OutlineImage.Image = 'rbxassetid://106743111263022'
+        TextHolder.IsSecret.Visible = true
+    end
+end
+
+--- create new badge ---
+
+local NewBadge = List.Badge:Clone()
+NewBadge.Name = 'BadgeName'
+NewBadge.Parent = List
+NewBadge.Visible = true
+NewBadge.LayoutOrder = Positions.general
+
+local NewGradient = List.Revive.OutlineImage:Clone()
+NewGradient.Parent = NewBadge
+
+if example.Locked == false then
+    NewBadge.ImageColor3 = Color3.fromRGB(255, 255, 255)
+    NewBadge.ImageTransparency = 0
+    NewBadge.OutlineImage.ImageColor3 = Color3.fromRGB(255, 255, 255)
+end
+
+if example.Secret == true then
+    NewBadge.OutlineImage.Image = 'rbxassetid://106743111263022'
+end
+
+--- setup new badge ---
+
+local Gradient = NewBadge.OutlineImage.UIGradient
+Gradient.Color = example.Color
+
+NewBadge.Image = example.Image
+
+--- debug ---
+
+NewBadge.MouseButton1Click:connect(function()
+    ShowBadgeInfo(example) -- garbage code because for some reason its only one working variant on zenith
+    Frame.Apply.Visible = true
+    Frame.Applied.Visible = false
+end)
+
+Frame.Apply.MouseButton1Click:connect(function()
+    if TextHolder.Title == example.Title then
+        FlexBadge(example)
+    end
+end)

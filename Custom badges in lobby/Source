@@ -47,10 +47,8 @@ function ShowBadgeInfo(Info)
 end
 
 function FlexBadge(Info)
-    Stuff.TextBadge.Text.Changed:wait()
-
     Stuff.TextBadge.Text = Info.Title
-    Stuff.ThemeGradient.Color = Info.Color
+    Stuff.TextBadge.ThemeGradient.Color = Info.Color
 
     Stuff.IconBadge.Image = Info.Image
     Stuff.IconBadge.OutlineImage.ThemeGradient.Color = Info.Color
@@ -71,6 +69,7 @@ NewBadge.Name = 'BadgeName'
 NewBadge.Parent = List
 NewBadge.Visible = true
 NewBadge.LayoutOrder = Positions.general
+NewBadge.OutlineImage:Destroy()
 
 local NewGradient = List.Revive.OutlineImage:Clone()
 NewGradient.Parent = NewBadge
@@ -85,6 +84,11 @@ if example.Secret == true then
     NewBadge.OutlineImage.Image = 'rbxassetid://106743111263022'
 end
 
+local NewButton = Frame.Apply:Clone()
+NewButton.Parent = Frame
+NewButton.Visible = false
+NewButton.Name = example.Title
+
 --- setup new badge ---
 
 local Gradient = NewBadge.OutlineImage.UIGradient
@@ -96,12 +100,25 @@ NewBadge.Image = example.Image
 
 NewBadge.MouseButton1Click:connect(function()
     ShowBadgeInfo(example) -- garbage code because for some reason its only one working variant on zenith
-    Frame.Apply.Visible = true
+    Frame.Apply.Visible = false
     Frame.Applied.Visible = false
+    NewButton.Visible = true
 end)
 
-Frame.Apply.MouseButton1Click:connect(function()
-    if TextHolder.Title == example.Title then
+NewButton.MouseButton1Click:connect(function()
+    if TextHolder.Title.Text == example.Title then
         FlexBadge(example)
+        NewButton.Visible = false
+        Frame.Applied.Visible = true
+    end
+end)
+
+TextHolder.Title.Changed:connect(function()
+    if TextHolder.Title.Text ~= example.Title then
+        NewButton.Visible = false
+    elseif Stuff.TextBadge.Text == example.Title then
+        NewButton.Visible = false
+        Frame.Apply.Visible = false
+        Frame.Applied.Visible = true
     end
 end)

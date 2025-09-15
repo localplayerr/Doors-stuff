@@ -8,15 +8,16 @@ local TextHolder = Frame.TextHolder
 local Stuff = Player.PlayerGui['NameUI' .. Player.Name].Stuff.Frame
 
 local example = {
-    Title = 'Example',
-    Desc = 'Example',
-    Reason = 'Example',
-    Image = '',
+    Title = 'Torn apart.',
+    Desc = 'Dont leave too early.',
+    Reason = 'Encounter Ripper.',
+    Image = 'http://www.roblox.com/asset/?id=12231244908',
+    Category = 'entities',
     Locked = false,
-    Secret = true,
+    Secret = false,
     Color = ColorSequence.new({
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 255)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 255)),
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(214, 110, 110)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(214, 143, 110)),
     }),
 }
 
@@ -68,7 +69,7 @@ local NewBadge = List.Badge:Clone()
 NewBadge.Name = 'BadgeName'
 NewBadge.Parent = List
 NewBadge.Visible = true
-NewBadge.LayoutOrder = Positions.general
+NewBadge.LayoutOrder = Positions[example.Category]
 NewBadge.OutlineImage:Destroy()
 
 local NewGradient = List.Revive.OutlineImage:Clone()

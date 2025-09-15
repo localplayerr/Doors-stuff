@@ -1,1 +1,1 @@
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("This script is not working anymore because anyone can deobfuscate it easily and probably won't be back because I quit doors",true)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("This script was been temporary disabled and will be fixed later",true)

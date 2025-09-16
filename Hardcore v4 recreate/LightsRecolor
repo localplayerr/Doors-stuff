@@ -24,7 +24,7 @@ cease = function()
                 local tweenservice = game:GetService('TweenService')
                 task.spawn(function()
                     local info = TweenInfo.new(0.15, Enum.EasingStyle.Linear)
-                    for _ , game.Workspace.CurrentRooms:GetDescendants() do
+                    for _ , light in  game.Workspace.CurrentRooms:GetDescendants() do
                         if
                             light:IsA('Light')
                             or light:IsA('SurfaceLight')

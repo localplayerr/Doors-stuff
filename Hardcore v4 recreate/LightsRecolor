@@ -18,7 +18,7 @@ ripper = function()
                         end
                     end
                 end
-end
+end,
 
 cease = function()
                 local tweenservice = game:GetService('TweenService')

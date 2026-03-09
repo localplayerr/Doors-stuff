@@ -1,5 +1,5 @@
 warn("Loading")
-_G.ver = 0.65 (Fixed)
+_G.ver = '0.65 (Fixed)'
 
 local seed = game.ReplicatedStorage.GameData.GameSeed.Value
 local lastroom = game.ReplicatedStorage.GameData.LatestRoom

@@ -24,24 +24,24 @@ local darksp = {}
 local holesp = {}
 local flamesp = {}
 
-for i = 10 , 95 , Random.new(seed):NextIntenger(6,8) do
+for i = 10 , 95 , Random.new(seed):NextInteger(6,8) do
   table.insert(detphsp,Random.new(seed + i):NextIntenger(i-4,i+7))
 end
 
-for i = 8 , 97 , Random.new(seed):NextIntenger(8,13) do
-  table.insert(routersp,Random.new(seed + i):NextIntenger(i-2,i+9))
+for i = 8 , 97 , Random.new(seed):NextInteger(8,13) do
+  table.insert(routersp,Random.new(seed + i):NextInteger(i-2,i+9))
 end
 
-for i = 6 , 98 , Random.new(seed):NextIntenger(8,12) do
-  table.insert(darksp,Random.new(seed + i):NextIntenger(i,i+15))
+for i = 6 , 98 , Random.new(seed):NextInteger(8,12) do
+  table.insert(darksp,Random.new(seed + i):NextInteger(i,i+15))
 end
 
-for i = 11 , 95 , Random.new(seed):NextIntenger(9,13) do
-  table.insert(holesp,Random.new(seed + i):NextIntenger(i-5,i+5))
+for i = 11 , 95 , Random.new(seed):NextInteger(9,13) do
+  table.insert(holesp,Random.new(seed + i):NextInteger(i-5,i+5))
 end
 
-for i = 10 , 99 , Random.new(seed):NextIntenger(8,11) do
-  table.insert(flamesp,Random.new(seed + i):NextIntenger(i-4,i+1))
+for i = 10 , 99 , Random.new(seed):NextInteger(8,11) do
+  table.insert(flamesp,Random.new(seed + i):NextInteger(i-4,i+1))
 end
 
 local tweenservice = game:GetService("TweenService")
@@ -79,13 +79,13 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(c
 lastroom.changed:connect(function()
     if table.find(detphsp, lastroom.Value) then
 	task.spawn(function()
-	        task.wait(Random.new(lastroom.Value):NextIntenger(2,10))
+	        task.wait(Random.new(lastroom.Value):NextInteger(2,10))
 	        loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Detph_"))()
 	end)
     end
     if table.find(routersp, lastroom.Value) then
 	task.spawn(function()
-	        task.wait(Random.new(lastroom.Value):NextIntenger(5,20))
+	        task.wait(Random.new(lastroom.Value):NextInteger(5,20))
 	        loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Router_"))()
 	end)
     end
@@ -101,7 +101,7 @@ lastroom.changed:connect(function()
     	end
 	if table.find(flamesp, lastroom.Value) then
 		task.spawn(function()
-			task.wait(Random.new(lastroom.Value):NextIntenger(0,1,0.5))
+			task.wait(Random.new(lastroom.Value):NextInteger(0,1,0.5))
 	        	loadstring(game:HttpGet("https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Immersive%20mode/Flame_"))()
 		end)
     	end
